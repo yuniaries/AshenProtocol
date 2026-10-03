@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "FCF",
+    "IRI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "ashenprotocol:entropy_meter"
+    },
+    "F": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "C": {
+      "item": "ashenprotocol:entropy_crystal"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:entropy_sink"
+  }
+}

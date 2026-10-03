@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "ashenprotocol:block/protocol_relay_off"
+    },
+    "active=true": {
+      "model": "ashenprotocol:block/protocol_relay_on"
+    }
+  }
+}

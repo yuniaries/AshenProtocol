@@ -1,0 +1,27 @@
+name: Build native pack
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: python3 tools/generate_assets.py
+      - run: chmod +x gradlew && ./gradlew build --no-daemon
+      - run: python3 tools/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ashenprotocol-pcl
+          path: |
+            build/release/*
+            build/libs/ashenprotocol-*.jar

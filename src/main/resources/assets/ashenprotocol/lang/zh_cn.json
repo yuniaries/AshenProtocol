@@ -1,0 +1,13 @@
+{
+  "item.ashenprotocol.protocol_fragment": "协议碎片",
+  "item.ashenprotocol.entropy_crystal": "熵晶体",
+  "item.ashenprotocol.echo_residue": "因果回声残渣",
+  "item.ashenprotocol.entropy_meter": "熵表",
+  "item.ashenprotocol.phase_pistol": "相位手枪",
+  "block.ashenprotocol.protocol_relay": "协议中继",
+  "item.ashenprotocol.field_guide": "灰烬协议 · 野外手册",
+  "itemGroup.ashenprotocol": "灰烬协议：回声网络",
+  "item.ashenprotocol.entropy_sink": "熵债净化器",
+  "key.ashenprotocol.journal": "打开协议终端",
+  "key.categories.ashenprotocol": "灰烬协议"
+}

@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/yuniaries/AshenProtocol/issues"
+
+[[mods]]
+modId="ashenprotocol"
+version="${mod_version}"
+displayName="灰烬协议：回声网络"
+displayURL="https://github.com/yuniaries/AshenProtocol"
+authors="yuniaries"
+description='''
+Ashen Protocol is a standalone progression mod built around Protocol Integrity,
+Entropy Debt, Relay Networks, Causal Echoes and advanced technology that changes
+the world as it is used.
+'''
+
+[[dependencies.ashenprotocol]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.ashenprotocol]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
