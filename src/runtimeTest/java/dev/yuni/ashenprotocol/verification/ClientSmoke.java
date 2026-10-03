@@ -34,11 +34,17 @@ public final class ClientSmoke {
         if (ticks == 60) Screenshot.grab(mc.gameDirectory, "native-hud.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_HUD: " + c.getString()));
         if (ticks == 80) {
             if ((ClientState.milestones & 3) != 3) throw new IllegalStateException("client did not receive fragment/meter progress");
-            mc.setScreen(new ProtocolJournalScreen(null));
+            if (dev.yuni.ashenprotocol.client.ClientEvents.JOURNAL.getKey().getValue() != org.lwjgl.glfw.GLFW.GLFW_KEY_J)
+                throw new IllegalStateException("journal default key is not J");
+            if (mc.options.keySocialInteractions.getKey().equals(dev.yuni.ashenprotocol.client.ClientEvents.JOURNAL.getKey()))
+                throw new IllegalStateException("journal conflicts with vanilla social key");
+            net.minecraft.client.KeyMapping.click(dev.yuni.ashenprotocol.client.ClientEvents.JOURNAL.getKey());
         }
+        if (ticks == 90 && !(mc.screen instanceof ProtocolJournalScreen))
+            throw new IllegalStateException("J key did not open native journal");
         if (ticks == 100) {
             Screenshot.grab(mc.gameDirectory, "native-journal.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_JOURNAL: " + c.getString()));
-            System.out.println("AP_CLIENT_SMOKE_SUCCESS: network state, real inventory, HUD and native journal rendered; milestones=" + ClientState.milestones);
+            System.out.println("AP_CLIENT_SMOKE_SUCCESS: network state, real inventory, HUD and J-key journal rendered without social key conflict; milestones=" + ClientState.milestones);
         }
         if (ticks == 120) mc.stop();
     }

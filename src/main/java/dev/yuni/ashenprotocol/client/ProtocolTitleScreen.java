@@ -17,14 +17,15 @@ public final class ProtocolTitleScreen extends Screen {
         addRenderableWidget(Button.builder(Component.literal(name), action).bounds(x, y, w, 20).build());
     }
     @Override protected void init() {
-        minecraft.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.2.0");
+        minecraft.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.2.1");
         int x = width / 2 - 100, y = Math.max(68, height / 2 - 55);
         button("进入世界", x, y, 200, b -> minecraft.setScreen(new SelectWorldScreen(this)));
         button("连接服务器", x, y + 22, 200, b -> minecraft.setScreen(new JoinMultiplayerScreen(this)));
         button("协议手册", x, y + 44, 200, b -> minecraft.setScreen(new ProtocolJournalScreen(this)));
         button("设置", x, y + 66, 97, b -> minecraft.setScreen(new OptionsScreen(this, minecraft.options)));
         button("MOD 信息", x + 103, y + 66, 97, b -> minecraft.setScreen(new ModListScreen(this)));
-        button("项目主页 · yuniaries", x, y + 88, 200, b -> Util.getPlatform().openUri(PROJECT_URL));
+        button("GitHub 主页", x, y + 88, 97, b -> Util.getPlatform().openUri("https://github.com/yuniaries"));
+        button("项目仓库", x + 103, y + 88, 97, b -> Util.getPlatform().openUri(PROJECT_URL));
         button("退出", x, y + 110, 200, b -> minecraft.stop());
     }
     @Override public void render(GuiGraphics g, int mouseX, int mouseY, float delta) {
@@ -35,8 +36,7 @@ public final class ProtocolTitleScreen extends Screen {
         g.drawCenteredString(font, "ASHEN PROTOCOL", mid, Math.max(10, height / 2 - 113), 0xff63e9db);
         g.drawCenteredString(font, "灰烬协议：回声网络", mid, Math.max(30, height / 2 - 88), 0xfff2eadb);
         g.drawCenteredString(font, "每一次重建，都需要面对力量的代价。", mid, Math.max(48, height / 2 - 70), 0xffa1b4c5);
-        g.drawString(font, "yuniaries / 原生自主开发 / 0.2.0", 8, height - 22, 0xff899aa9);
-        g.drawString(font, "Minecraft 1.20.1 · Forge 47.3.22", 8, height - 11, 0xff899aa9);
+        g.drawString(font, "灰烬协议 0.2.1 · yuniaries", 8, height - 12, 0xff899aa9);
         super.render(g, mouseX, mouseY, delta);
     }
     @Override public boolean shouldCloseOnEsc() { return false; }

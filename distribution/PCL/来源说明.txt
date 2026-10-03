@@ -1,0 +1,5 @@
+PCL 正式版 2.13.1.1，用户提供的原始发行文件，未修改。
+作者与项目：龙腾猫跃及PCL维护者 / https://github.com/Meloong-Git/PCL
+本项目仅附带启动器，不声明PCL为自主开发，也不把其版权变更为MIT。
+PCL分发许可见LICENCE.txt及其引用的许可原文。
+SHA256: 30eb93c62fc51ede0898648e67455478a3d5a4f279938ae65aec77b84cb9703f

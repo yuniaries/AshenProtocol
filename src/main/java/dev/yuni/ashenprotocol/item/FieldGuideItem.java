@@ -22,7 +22,7 @@ public final class FieldGuideItem extends Item {
         "4 · 相位手枪\n\n铜锭 铁锭 碎片\n　　 铁锭 红石\n　　 铁锭\n\n背包放碎片，瞄准右键射击。射程 32 格，伤害 8，消耗碎片 1、耐久 1；每枪增加熵债 2。墙壁会挡住射线。",
         "5 · 因果回声\n\n死亡会记录你最近一次死亡地点。重生后用熵表找坐标，返回同一维度、距离 8 格以内，回收残渣。\n\n回声不会替你保存掉落物。再次死亡会覆盖旧回声。",
         "6 · 世界阶段\n\n完整度 500：恢复\n完整度 3000：稳定\n熵债 4000：裂解\n熵债 8000：级联失稳\n\n高熵可能引发黑暗、协议残影与视觉闪电。建设中继网络处理代价。世界状态随存档保存。",
-        "7 · 更多材料与指令\n\n熵晶体：紫水晶围绕末影珍珠。\n\n/protocol status\n查看世界状态，无需作弊。\n\n管理测试（需作弊）：\n/protocol entropy set 9000\n/protocol integrity set 3000\n\n按 P 打开原生协议终端，查看八章任务与同步世界状态。"
+        "7 · 更多材料与指令\n\n熵晶体：紫水晶围绕末影珍珠。\n\n/protocol status\n查看世界状态，无需作弊。\n\n管理测试（需作弊）：\n/protocol entropy set 9000\n/protocol integrity set 3000\n\n按 J 打开原生协议终端，查看八章任务与同步世界状态。"
     };
     public static ItemStack createBook() {
         ItemStack book = new ItemStack(Items.WRITTEN_BOOK);

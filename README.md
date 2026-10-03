@@ -2,7 +2,7 @@
 
 由 **yuniaries** 开发的 Minecraft 1.20.1 / Forge 47.3.22 原生玩法项目，Java 17。
 
-项目主页：<https://github.com/yuniaries/AshenProtocol>。PCL 安装 ZIP 位于 [Releases](https://github.com/yuniaries/AshenProtocol/releases)。下载文件名中带“拖入PCL”的完整 ZIP，拖入启动器并安装为新版本。首次安装需联网下载 Minecraft、Forge 和运行库；自研 MOD 已内置。建议分配 3–4 GB 内存。
+项目主页：<https://github.com/yuniaries/AshenProtocol>。PCL 安装 ZIP 位于 [Releases](https://github.com/yuniaries/AshenProtocol/releases)。下载文件名中带“拖入PCL”的完整 ZIP，拖入启动器并安装为新版本。ZIP统一包含游戏MOD、纹理、配置、源码、文档和用户提供的未修改PCL 2.13.1.1启动器。没有启动器时先解压ZIP，运行 `启动PCL.bat`，再将同一个ZIP拖入启动器。首次安装需联网下载 Minecraft、Forge 和运行库；自研 MOD 已内置。建议分配 3–4 GB 内存。
 
 ![原生主菜单](docs/images/main-menu.png)
 
@@ -10,7 +10,7 @@
 
 从普通生存寻找紫水晶和红石开始，走完八章进度：协议碎片、熵表、中继网络、相位手枪、死亡回声、熵晶体、主动净化、世界重建。每章完成后自动记录并只奖励一次经验；任务保存在玩家死亡后保留的数据中。
 
-进入世界获得野外手册；右键手册或按 **P** 打开自研协议终端，查看配方说明、任务和服务器同步的世界状态。手持熵表时显示 HUD。主菜单、任务界面、像素纹理与玩法系统均由本项目实现。
+进入世界获得野外手册；右键手册或按 **J** 打开自研协议终端，查看配方说明、任务和服务器同步的世界状态。手持熵表时显示 HUD。主菜单、任务界面、像素纹理与玩法系统均由本项目实现。
 
 - **相位手枪**：32 格射程，8 点伤害；每枪消耗一枚碎片、1 耐久，增加 2 点熵债；墙壁阻挡射线，冷却 8 tick。
 - **协议中继**：碎片右键充能，每枚维持 200 秒；接通红石信号后每 5 秒完整度 +1、熵债 -1。只在加载的区块中运行，可并联多个中继。
@@ -25,7 +25,7 @@
 
 这个版本不继承落幕曲的 MOD 清单、任务、菜单、枪包、资源、素材、存档或作者链接。早期 0.1.x 衍生试验包不属于此仓库，也不能与当前版本混装。
 
-核心实现根据用户提供的《灰烬协议 Standalone》设计文档开发和重构。仅依赖 Minecraft 与 Forge；第三方辅助 MOD 可以另行评估添加，但不承担本项目的核心玩法。不能把基础框架和 Minecraft 原版代码声明为自己的作品，详细来源见 [docs/PROVENANCE.md](docs/PROVENANCE.md)。
+附带的第三方PCL不适用本项目MIT许可，原许可和来源说明位于 `distribution/PCL/`。核心实现根据用户提供的《灰烬协议 Standalone》设计文档开发和重构。仅依赖 Minecraft 与 Forge；第三方辅助 MOD 可以另行评估添加，但不承担本项目的核心玩法。不能把基础框架和 Minecraft 原版代码声明为自己的作品，详细来源见 [docs/PROVENANCE.md](docs/PROVENANCE.md)。
 
 当前 0.2.0 是完整的核心玩法版本，未复刻旧整合包中第三方 MOD 的庞大内容。包的体积取决于实际自研内容，没有人为填充。
 
