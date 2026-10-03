@@ -21,29 +21,75 @@ public final class ProtocolJournalScreen extends Screen {
         "建设并维护中继网络，直到完整度至少 3000、熵债低于 1000，且完成一次主动净化。高熵会带来黑暗、残影与视觉闪电。任务只奖励一次经验，死亡不重置。达成重建后仍可继续生存。"
     };
     public ProtocolJournalScreen(Screen parent) { super(Component.literal("协议终端")); this.parent = parent; }
+    private int scroll;
+    private int panelX, panelY, panelWidth, panelHeight, navWidth, bodyX, bodyY, bodyWidth, bodyBottom;
+    private final java.util.List<Button> chapters = new java.util.ArrayList<>();
     @Override protected void init() {
-        int left = Math.max(8, width / 2 - 205), top = 40;
+        chapters.clear();
+        panelWidth = Math.min(760, width - 24);
+        panelHeight = Math.min(420, height - 24);
+        panelX = (width - panelWidth) / 2;
+        panelY = (height - panelHeight) / 2;
+        navWidth = Math.max(96, Math.min(160, panelWidth / 4));
+        bodyX = panelX + navWidth + 24;
+        bodyY = panelY + 65;
+        bodyWidth = panelX + panelWidth - 14 - bodyX;
+        bodyBottom = panelY + panelHeight - 78;
+        int gap = Math.min(26, (panelHeight - 64) / 8);
         for (int i = 0; i < DETAILS.length; i++) {
             final int n = i;
-            addRenderableWidget(Button.builder(Component.literal((i + 1) + " · " + Progression.TITLES[i]), b -> chapter = n).bounds(left, top + i * 23, 112, 20).build());
+            Button b = Button.builder(Component.literal((i + 1) + " · " + Progression.TITLES[i]), button -> { chapter = n; scroll = 0; })
+                .bounds(panelX + 12, panelY + 34 + i * gap, navWidth, Math.max(14, gap - 3)).build();
+            chapters.add(b); addRenderableWidget(b);
         }
-        addRenderableWidget(Button.builder(Component.literal("返回"), b -> onClose()).bounds(width / 2 - 50, height - 28, 100, 20).build());
+        addRenderableWidget(Button.builder(Component.literal("返回"), b -> onClose())
+            .bounds(width / 2 - 45, panelY + panelHeight - 25, 90, 18).build());
+    }
+    private int maxScroll() {
+        return Math.max(0, font.split(Component.literal(DETAILS[chapter]), bodyWidth).size() * 12 - (bodyBottom - bodyY));
+    }
+    @Override public boolean mouseScrolled(double mx, double my, double amount) {
+        if (mx >= bodyX && mx < bodyX + bodyWidth && my >= bodyY && my < bodyBottom) {
+            scroll = net.minecraft.util.Mth.clamp(scroll - (int)(amount * 24), 0, maxScroll());
+            return true;
+        }
+        return super.mouseScrolled(mx, my, amount);
     }
     @Override public void render(GuiGraphics g, int mx, int my, float delta) {
-        g.fill(0, 0, width, height, 0xf509121c);
-        g.drawCenteredString(font, "灰烬协议 / 协议终端", width / 2, 12, 0xff63e9db);
-        int left = Math.max(8, width / 2 - 205), x = left + 126, w = Math.max(100, width - x - 16);
-        g.drawString(font, Progression.TITLES[chapter], x, 43, 0xfff2eadb);
+        g.fill(0, 0, width, height, 0xe009121c);
+        g.fill(panelX, panelY, panelX + panelWidth, panelY + panelHeight, 0xff111e2b);
+        g.fill(panelX, panelY, panelX + panelWidth, panelY + 2, 0xff63e9db);
+        g.fill(bodyX - 9, panelY + 33, bodyX - 8, panelY + panelHeight - 34, 0xff2b3e4d);
+        g.drawString(font, "灰烬协议 / 协议终端", panelX + 12, panelY + 12, 0xff63e9db);
+        for (int i = 0; i < chapters.size(); i++) chapters.get(i).active = i != chapter;
+        g.drawString(font, Progression.TITLES[chapter], bodyX, panelY + 34, 0xfff2eadb);
         boolean done = (ClientState.milestones & (1 << chapter)) != 0;
-        g.drawString(font, ClientState.connected ? (done ? "已完成 · 经验奖励已发放" : "进行中 · 完成条件后自动记录") : "离线手册 · 进入世界后显示进度", x, 62, done ? 0xff63e9db : 0xffb9a984);
-        int y = 85;
-        for (var line : font.split(Component.literal(DETAILS[chapter]), Math.min(w, 280))) { g.drawString(font, line, x, y, 0xffc6d3df); y += 12; }
-        if (ClientState.connected) {
-            int statusY = Math.max(y + 12, height - 81);
-            g.drawString(font, "完整度 " + ClientState.integrity + " / 熵债 " + ClientState.entropy, x, statusY, 0xff63e9db);
-            g.drawString(font, "阶段：" + ProtocolPhase.from(ClientState.integrity, ClientState.entropy).zh(), x, statusY + 13, 0xffc6d3df);
-            if (!ClientState.echo.isEmpty()) g.drawString(font, "回声：" + ClientState.echo, x, statusY + 26, 0xffbc90df);
+        String state = ClientState.connected ? (done ? "已完成 · 奖励已发放" : "进行中 · 自动记录") : "离线教程";
+        g.drawString(font, state, bodyX, panelY + 49, done ? 0xff63e9db : 0xffb9a984);
+        scroll = net.minecraft.util.Mth.clamp(scroll, 0, maxScroll());
+        g.enableScissor(bodyX, bodyY, bodyX + bodyWidth, bodyBottom);
+        int y = bodyY - scroll;
+        for (var line : font.split(Component.literal(DETAILS[chapter]), bodyWidth)) {
+            g.drawString(font, line, bodyX, y, 0xffc6d3df); y += 12;
         }
+        g.disableScissor();
+        if (maxScroll() > 0) {
+            int track = bodyBottom - bodyY;
+            int thumb = Math.max(8, track * track / (track + maxScroll()));
+            int top = bodyY + scroll * (track - thumb) / maxScroll();
+            g.fill(bodyX + bodyWidth + 3, bodyY, bodyX + bodyWidth + 5, bodyBottom, 0xff293944);
+            g.fill(bodyX + bodyWidth + 3, top, bodyX + bodyWidth + 5, top + thumb, 0xff63e9db);
+        }
+        int statusY = panelY + panelHeight - 69;
+        g.fill(bodyX, statusY - 4, panelX + panelWidth - 12, statusY - 3, 0xff2b3e4d);
+        if (ClientState.connected) {
+            g.drawString(font, "完整度 " + ClientState.integrity + " / 熵债 " + ClientState.entropy, bodyX, statusY, 0xff63e9db);
+            g.drawString(font, "阶段：" + ProtocolPhase.from(ClientState.integrity, ClientState.entropy).zh(), bodyX, statusY + 12, 0xffc6d3df);
+            if (!ClientState.echo.isEmpty()) {
+                g.enableScissor(bodyX, statusY + 24, bodyX + bodyWidth, statusY + 35);
+                g.drawString(font, "回声：" + ClientState.echo, bodyX, statusY + 24, 0xffbc90df); g.disableScissor();
+            }
+        } else g.drawString(font, "进入世界后同步任务状态", bodyX, statusY, 0xff899aa9);
         super.render(g, mx, my, delta);
     }
     @Override public void onClose() { minecraft.setScreen(parent); }

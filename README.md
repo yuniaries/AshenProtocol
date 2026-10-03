@@ -2,7 +2,7 @@
 
 由 **yuniaries** 开发的 Minecraft 1.20.1 / Forge 47.3.22 原生玩法项目，Java 17。
 
-项目主页：<https://github.com/yuniaries/AshenProtocol>。PCL 安装 ZIP 位于 [Releases](https://github.com/yuniaries/AshenProtocol/releases)。下载文件名中带“拖入PCL”的完整 ZIP，拖入启动器并安装为新版本。ZIP统一包含游戏MOD、纹理、配置、源码、文档和用户提供的未修改PCL 2.13.1.1启动器。没有启动器时先解压ZIP，运行 `启动PCL.bat`，再将同一个ZIP拖入启动器。首次安装需联网下载 Minecraft、Forge 和运行库；自研 MOD 已内置。建议分配 3–4 GB 内存。
+项目主页：<https://github.com/yuniaries/AshenProtocol>。PCL 安装 ZIP 位于 [Releases](https://github.com/yuniaries/AshenProtocol/releases)。下载文件名中带“拖入PCL”的完整 ZIP，拖入启动器并安装为新版本。ZIP统一包含游戏MOD、纹理、配置、源码、文档和用户提供的未修改PCL 2.13.1.1启动器。没有启动器时先解压ZIP，双击根目录的 `Plain Craft Launcher 2.exe`，再将同一个ZIP拖入启动器。首次安装需联网下载 Minecraft、Forge 和运行库；自研 MOD 已内置。建议分配 3–4 GB 内存。
 
 ![原生主菜单](docs/images/main-menu.png)
 

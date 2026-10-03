@@ -17,7 +17,7 @@ public final class ProtocolTitleScreen extends Screen {
         addRenderableWidget(Button.builder(Component.literal(name), action).bounds(x, y, w, 20).build());
     }
     @Override protected void init() {
-        minecraft.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.2.1");
+        minecraft.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.2.2");
         int x = width / 2 - 100, y = Math.max(68, height / 2 - 55);
         button("进入世界", x, y, 200, b -> minecraft.setScreen(new SelectWorldScreen(this)));
         button("连接服务器", x, y + 22, 200, b -> minecraft.setScreen(new JoinMultiplayerScreen(this)));
@@ -36,7 +36,7 @@ public final class ProtocolTitleScreen extends Screen {
         g.drawCenteredString(font, "ASHEN PROTOCOL", mid, Math.max(10, height / 2 - 113), 0xff63e9db);
         g.drawCenteredString(font, "灰烬协议：回声网络", mid, Math.max(30, height / 2 - 88), 0xfff2eadb);
         g.drawCenteredString(font, "每一次重建，都需要面对力量的代价。", mid, Math.max(48, height / 2 - 70), 0xffa1b4c5);
-        g.drawString(font, "灰烬协议 0.2.1 · yuniaries", 8, height - 12, 0xff899aa9);
+        g.drawString(font, "灰烬协议 0.2.2 · yuniaries", 8, height - 12, 0xff899aa9);
         super.render(g, mouseX, mouseY, delta);
     }
     @Override public boolean shouldCloseOnEsc() { return false; }

@@ -35,13 +35,13 @@ public final class ClientEvents {
                     mc.options.save();
                 }
             }
-            if (mc.player.tickCount % 20 == 0) mc.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.2.1");
+            if (mc.player.tickCount % 20 == 0) mc.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.2.2");
             while (JOURNAL.consumeClick()) mc.setScreen(new ProtocolJournalScreen(null));
         }
     }
     @SubscribeEvent public static void hud(RenderGuiEvent.Post e) {
         var mc = Minecraft.getInstance();
-        if (mc.player == null || mc.options.hideGui || !ClientState.connected) return;
+        if (mc.player == null || mc.screen != null || mc.options.hideGui || !ClientState.connected) return;
         if (!mc.player.getMainHandItem().is(ModItems.ENTROPY_METER.get()) && !mc.player.getOffhandItem().is(ModItems.ENTROPY_METER.get())) return;
         var g = e.getGuiGraphics();
         g.fill(6, 6, 186, 49, 0xc009121c);

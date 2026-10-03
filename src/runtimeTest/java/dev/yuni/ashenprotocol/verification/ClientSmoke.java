@@ -21,6 +21,7 @@ public final class ClientSmoke {
         if (mc.player == null || !ClientState.connected || mc.getSingleplayerServer() == null) return;
         ticks++;
         if (ticks == 20) {
+            mc.options.guiScale().set(0); mc.resizeDisplay();
             var uuid = mc.player.getUUID();
             mc.getSingleplayerServer().execute(() -> {
                 var player = mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);
@@ -46,6 +47,19 @@ public final class ClientSmoke {
             Screenshot.grab(mc.gameDirectory, "native-journal.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_JOURNAL: " + c.getString()));
             System.out.println("AP_CLIENT_SMOKE_SUCCESS: network state, real inventory, HUD and J-key journal rendered without social key conflict; milestones=" + ClientState.milestones);
         }
-        if (ticks == 120) mc.stop();
+        if (ticks == 120) mc.getWindow().setWindowed(2560,1440);
+        if (ticks == 140) {
+            for (var listener : mc.screen.children()) if (listener instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().startsWith("7")) b.onPress();
+        }
+        if (ticks == 160 || ticks == 200) {
+            for (var listener : mc.screen.children()) if (listener instanceof net.minecraft.client.gui.components.AbstractWidget b) {
+                if (b.getX()<0 || b.getY()<0 || b.getX()+b.getWidth()>mc.screen.width || b.getY()+b.getHeight()>mc.screen.height)
+                    throw new IllegalStateException("responsive journal widget outside viewport");
+            }
+            Screenshot.grab(mc.gameDirectory, ticks==160 ? "native-journal-large-auto.png" : "native-journal-large-scale2.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_LAYOUT: " + c.getString()));
+            System.out.println("AP_CLIENT_LAYOUT_PASS: " + mc.getWindow().getScreenWidth() + "x" + mc.getWindow().getScreenHeight() + ", GUI=" + mc.getWindow().getGuiScaledWidth() + "x" + mc.getWindow().getGuiScaledHeight());
+        }
+        if (ticks == 180) { mc.options.guiScale().set(2); mc.resizeDisplay(); }
+        if (ticks == 220) mc.stop();
     }
 }
