@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:frost_root"
+    },
+    {
+      "item": "ashenprotocol:rift_melon"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:echo_ration",
+    "count": 1
+  }
+}

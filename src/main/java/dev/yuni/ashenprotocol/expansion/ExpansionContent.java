@@ -25,8 +25,12 @@ public final class ExpansionContent {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, AshenProtocol.MOD_ID);
     public static final DeferredRegister<net.minecraft.world.level.levelgen.structure.StructureType<?>> STRUCTURES = DeferredRegister.create(net.minecraft.core.registries.Registries.STRUCTURE_TYPE,AshenProtocol.MOD_ID);
     public static final RegistryObject<net.minecraft.world.level.levelgen.structure.StructureType<ArchiveStructure>> ARCHIVE_STRUCTURE = STRUCTURES.register("island_archive", () -> () -> ArchiveStructure.CODEC);
-    public static final String[] ENEMIES = {"ash_stalker", "marsh_lurker", "frost_sentinel", "rift_hound", "cinder_warden", "tide_weaver", "discord_archon", "last_cartographer"};
-    public static final String[] MACHINES = {"ash_press", "crystal_refinery", "echo_loom", "alloy_forge", "restoration_array", "world_anchor"};
+    public static final String[] ENEMIES = {"ash_stalker", "marsh_lurker", "frost_sentinel", "rift_hound", "cinder_warden", "tide_weaver", "discord_archon", "last_cartographer", "deep_scavenger", "storm_drone", "root_keeper", "dawn_raider", "abyss_cantor", "storm_sovereign", "root_matriarch", "dawn_regent"};
+    public static final String[] MACHINES = {"ash_press", "crystal_refinery", "echo_loom", "alloy_forge", "restoration_array", "world_anchor", "carbon_kiln", "wire_drawer", "circuit_assembler", "steel_foundry", "compost_processor", "bio_refinery", "field_kitchen", "herbal_extractor", "fiber_spinner", "matrix_compressor", "archive_decoder", "precision_lathe", "phase_assembler", "biosphere_restorer"};
+    public static final int[] BOSS_VARIANTS={4,5,6,7,12,13,14,15};
+    public static final String[] KEYS={"cinder_key","tide_key","rift_key","atlas_key","abyss_key","storm_key","root_key","dawn_key"};
+    public static boolean bossVariant(int n){return n>=4&&n<8||n>=12;}
+    public static final RegistryObject<BlockEntityType<dev.yuni.ashenprotocol.campaign.ExpeditionArena>> ARENA;
     public static final RegistryObject<BlockEntityType<WorkshopEntity>> WORKSHOP;
     static {
         for (String id : new String[]{"raw_ash", "signal_shard", "rift_dust", "memory_shard", "void_shard", "ash_ingot", "signal_ingot", "rift_ingot", "woven_echo", "tempered_alloy", "restoration_cell", "cinder_core", "tide_core", "rift_core", "atlas_core", "frost_lens", "sun_disk", "archive_chip", "cinder_key", "tide_key", "rift_key", "atlas_key"}) {
@@ -54,18 +58,20 @@ public final class ExpansionContent {
         }
         for (int i = 0; i < ENEMIES.length; i++) {
             final int variant = i; String id = ENEMIES[i];
-            var mob = ENTITIES.register(id, () -> EntityType.Builder.<ProtocolMob>of((type, level) -> new ProtocolMob(type, level, variant), MobCategory.MONSTER).sized(iSize(variant), variant >= 4 ? 2.6f : 1.95f).clientTrackingRange(10).build("ashenprotocol:" + id));
+            var mob = ENTITIES.register(id, () -> EntityType.Builder.<ProtocolMob>of((type, level) -> new ProtocolMob(type, level, variant), MobCategory.MONSTER).sized(iSize(variant), bossVariant(variant) ? 2.6f : 1.95f).clientTrackingRange(10).build("ashenprotocol:" + id));
             MOBS.put(id, mob);
             ITEMS.put(id + "_spawn_egg", ModItems.ITEMS.register(id + "_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(mob, 0x142531, 0x63e9db + variant * 900, new Item.Properties())));
         }
+        dev.yuni.ashenprotocol.campaign.CampaignContent.register();
+        ARENA=ModBlockEntities.BLOCK_ENTITIES.register("expedition_arena",()->BlockEntityType.Builder.of(dev.yuni.ashenprotocol.campaign.ExpeditionArena::new,BLOCKS.get("expedition_beacon").get()).build(null));
         WORKSHOP = ModBlockEntities.BLOCK_ENTITIES.register("workshop", () -> BlockEntityType.Builder.of(WorkshopEntity::new, Arrays.stream(MACHINES).map(id -> BLOCKS.get(id).get()).toArray(Block[]::new)).build(null));
     }
-    private static float iSize(int i) { return i >= 4 ? 0.9f : 0.6f; }
+    private static float iSize(int i) { return bossVariant(i) ? 0.9f : 0.6f; }
     private static void addBlock(String id, java.util.function.Supplier<Block> factory) {
         var block = ModBlocks.BLOCKS.register(id, factory); BLOCKS.put(id, block);
         ITEMS.put(id, ModItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties())));
     }
-    public static Item item(String id) { if (id.equals("protocol_fragment")) return ModItems.PROTOCOL_FRAGMENT.get(); if (id.equals("entropy_crystal")) return ModItems.ENTROPY_CRYSTAL.get(); if (id.equals("echo_residue")) return ModItems.ECHO_RESIDUE.get(); return ITEMS.get(id).get(); }
+    public static Item item(String id) { if(id.contains(":"))return java.util.Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(id))); if (id.equals("protocol_fragment")) return ModItems.PROTOCOL_FRAGMENT.get(); if (id.equals("entropy_crystal")) return ModItems.ENTROPY_CRYSTAL.get(); if (id.equals("echo_residue")) return ModItems.ECHO_RESIDUE.get(); return ITEMS.get(id).get(); }
     public static void register(IEventBus bus) { ENTITIES.register(bus); STRUCTURES.register(bus); }
     private record SimpleTier(int index) implements Tier {
         public int getUses() { return new int[]{500, 1100, 1900}[index]; }

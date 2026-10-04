@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:void_shard"
+    },
+    {
+      "item": "ashenprotocol:memory_matrix"
+    },
+    {
+      "item": "ashenprotocol:echo_circuit"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:void_matrix",
+    "count": 1
+  }
+}

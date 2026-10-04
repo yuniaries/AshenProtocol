@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:reinforced_plate"
+    },
+    {
+      "item": "ashenprotocol:copper_wire"
+    },
+    {
+      "item": "ashenprotocol:ceramic_plate"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:lattice_frame",
+    "count": 1
+  }
+}

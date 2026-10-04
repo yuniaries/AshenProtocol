@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:steel_ingot"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "ashenprotocol:pressure_valve"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:pump_head",
+    "count": 1
+  }
+}

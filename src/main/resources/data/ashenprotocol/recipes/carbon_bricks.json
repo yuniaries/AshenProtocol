@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:carbon_plate"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:carbon_bricks",
+    "count": 8
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:archive_chip"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:archive_lamp",
+    "count": 8
+  }
+}

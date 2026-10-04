@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:rift_circuit"
+    },
+    {
+      "item": "ashenprotocol:restoration_cell"
+    },
+    {
+      "item": "ashenprotocol:steel_ingot"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:expedition_beacon",
+    "count": 1
+  }
+}

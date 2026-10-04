@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:root_core"
+    },
+    {
+      "item": "ashenprotocol:navigation_array"
+    },
+    {
+      "item": "ashenprotocol:dawn_fragment"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:dawn_key",
+    "count": 1
+  }
+}

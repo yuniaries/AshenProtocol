@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IC ",
+    "IS ",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:deep_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:abyss_core"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:echo_axe",
+    "count": 1
+  }
+}

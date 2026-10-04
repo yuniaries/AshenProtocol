@@ -9,16 +9,18 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.levelgen.Heightmap;
-public final class CoordinateGate extends Item {
+public class CoordinateGate extends Item {
     public static final ResourceKey<Level> REALM=ResourceKey.create(Registries.DIMENSION,new ResourceLocation("ashenprotocol","lost_coordinates"));
-    public CoordinateGate(Properties p) { super(p); }
+    private final ResourceKey<Level> target;
+    public CoordinateGate(Properties p) { this(p,REALM); }
+    protected CoordinateGate(Properties p,ResourceKey<Level> target) { super(p);this.target=target; }
     @Override public InteractionResultHolder<ItemStack> use(Level l,net.minecraft.world.entity.player.Player player,InteractionHand hand) {
         var stack=player.getItemInHand(hand);if(l.isClientSide)return InteractionResultHolder.success(stack);
         if(!(player instanceof ServerPlayer p)||p.getCooldowns().isOnCooldown(this))return InteractionResultHolder.fail(stack);
         var saved=p.getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG);
-        boolean returning=l.dimension().equals(REALM);
+        boolean returning=l.dimension().equals(target);
         if(!returning && !l.dimension().equals(Level.OVERWORLD)) { p.sendSystemMessage(Component.literal("坐标门只能在主世界与失序领域之间开启，请先返回主世界。"));return InteractionResultHolder.fail(stack); }
-        var key=returning ? ResourceKey.create(Registries.DIMENSION,ResourceLocation.tryParse(saved.getString("AshenOrigin"))==null ? new ResourceLocation("minecraft","overworld") : new ResourceLocation(saved.getString("AshenOrigin"))) : REALM;
+        var key=returning ? ResourceKey.create(Registries.DIMENSION,ResourceLocation.tryParse(saved.getString("AshenOrigin"))==null ? new ResourceLocation("minecraft","overworld") : new ResourceLocation(saved.getString("AshenOrigin"))) : target;
         var destination=p.getServer().getLevel(key);
         if(destination==null) { p.sendSystemMessage(Component.literal("目的地维度不可用，请确认完整安装灰烬协议。"));return InteractionResultHolder.fail(stack); }
         double x=returning && saved.contains("AshenOriginX") ? saved.getDouble("AshenOriginX") : p.getX();
@@ -50,7 +52,7 @@ public final class CoordinateGate extends Item {
         if(landing==null) { p.sendSystemMessage(Component.literal("附近没有安全落点。换个位置再开启坐标门；未扣除任何物品。"));return InteractionResultHolder.fail(stack); }
         if(!returning) { saved.putString("AshenOrigin",l.dimension().location().toString());saved.putDouble("AshenOriginX",p.getX());saved.putDouble("AshenOriginZ",p.getZ());p.getPersistentData().put(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG,saved); }
         p.teleportTo(destination,landing.getX()+.5,landing.getY(),landing.getZ()+.5,p.getYRot(),p.getXRot());p.fallDistance=0;
-        p.getCooldowns().addCooldown(this,200);p.sendSystemMessage(Component.literal(returning ? "已返回原维度的地表安全落点。" : "已抵达失序领域。再次使用坐标门可返回；这里禁止床和重生锚，请在主世界设置重生点。"));
+        p.getCooldowns().addCooldown(this,200);p.sendSystemMessage(Component.literal(returning ? "已返回原维度的地表安全落点。" : "已抵达协议领域。再次使用坐标门可返回；这里禁止床和重生锚，请在主世界设置重生点。"));
         return InteractionResultHolder.consume(stack);
     }
 }

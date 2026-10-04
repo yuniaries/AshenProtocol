@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:ceramic_plate"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:ceramic_tiles",
+    "count": 8
+  }
+}

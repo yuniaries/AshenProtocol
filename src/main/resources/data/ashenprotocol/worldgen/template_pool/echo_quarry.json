@@ -1,0 +1,15 @@
+{
+  "name": "ashenprotocol:echo_quarry",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ashenprotocol:echo_quarry",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

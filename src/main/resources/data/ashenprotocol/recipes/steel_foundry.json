@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "FCF",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "P": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "F": {
+      "item": "ashenprotocol:copper_wire"
+    },
+    "C": {
+      "item": "minecraft:blast_furnace"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:steel_foundry",
+    "count": 1
+  }
+}

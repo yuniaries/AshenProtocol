@@ -1,0 +1,8 @@
+{
+  "type": "ashenprotocol:island_archive",
+  "biomes": "#ashenprotocol:has_ender_foundry",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "ashenprotocol:ender_foundry"
+}

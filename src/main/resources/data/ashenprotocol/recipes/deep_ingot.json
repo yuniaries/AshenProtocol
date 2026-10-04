@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ashenprotocol:deep_ore_fragment"
+  },
+  "result": "ashenprotocol:deep_ingot",
+  "experience": 1.0,
+  "cookingtime": 200
+}

@@ -53,21 +53,21 @@ public final class ProtocolJournalScreen extends Screen {
         bodyWidth = panelX + panelWidth - 14 - bodyX;
         bodyBottom = panelY + panelHeight - 78;
         int gap = Math.min(26, (panelHeight - 87) / 8);
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8 && page*8+i<Progression.TITLES.length; i++) {
             final int n = page * 8 + i;
             Button b = Button.builder(Component.literal((n + 1) + " · " + Progression.TITLES[n]), button -> { chapter = n; scroll = 0; })
                 .bounds(panelX + 12, panelY + 34 + i * gap, navWidth, Math.max(14, gap - 3)).build();
             chapters.add(b); addRenderableWidget(b);
         }
-        addRenderableWidget(Button.builder(Component.literal("上一组"), b -> { page=Math.floorMod(page-1,3);chapter=page*8;scroll=0;rebuildWidgets(); })
+        addRenderableWidget(Button.builder(Component.literal("上一组"), b -> { page=Math.floorMod(page-1,(Progression.TITLES.length+7)/8);chapter=page*8;scroll=0;rebuildWidgets(); })
             .bounds(panelX+12,panelY+panelHeight-43,navWidth/2-2,16).build());
-        addRenderableWidget(Button.builder(Component.literal("下一组"), b -> { page=(page+1)%3;chapter=page*8;scroll=0;rebuildWidgets(); })
+        addRenderableWidget(Button.builder(Component.literal("下一组"), b -> { page=(page+1)%((Progression.TITLES.length+7)/8);chapter=page*8;scroll=0;rebuildWidgets(); })
             .bounds(panelX+14+navWidth/2,panelY+panelHeight-43,navWidth/2-2,16).build());
         addRenderableWidget(Button.builder(Component.literal("返回"), b -> onClose())
             .bounds(width / 2 - 45, panelY + panelHeight - 25, 90, 18).build());
     }
     private int maxScroll() {
-        return Math.max(0, font.split(Component.literal(DETAILS[chapter]), bodyWidth).size() * 12 - (bodyBottom - bodyY));
+        return Math.max(0, font.split(Component.literal((chapter<DETAILS.length?DETAILS[chapter]:dev.yuni.ashenprotocol.campaign.CampaignJournal.detail(chapter))), bodyWidth).size() * 12 - (bodyBottom - bodyY));
     }
     @Override public boolean mouseScrolled(double mx, double my, double amount) {
         if (mx >= bodyX && mx < bodyX + bodyWidth && my >= bodyY && my < bodyBottom) {
@@ -84,13 +84,13 @@ public final class ProtocolJournalScreen extends Screen {
         g.drawString(font, "灰烬协议 / 协议终端", panelX + 12, panelY + 12, 0xff63e9db);
         for (int i = 0; i < chapters.size(); i++) chapters.get(i).active = page * 8 + i != chapter;
         g.drawString(font, Progression.TITLES[chapter], bodyX, panelY + 34, 0xfff2eadb);
-        boolean done = (ClientState.milestones & (1 << chapter)) != 0;
+        boolean done = ClientState.completed(chapter);
         String state = ClientState.connected ? (done ? "已完成 · 奖励已发放" : "进行中 · 自动记录") : "离线教程";
         g.drawString(font, state, bodyX, panelY + 49, done ? 0xff63e9db : 0xffb9a984);
         scroll = net.minecraft.util.Mth.clamp(scroll, 0, maxScroll());
         g.enableScissor(bodyX, bodyY, bodyX + bodyWidth, bodyBottom);
         int y = bodyY - scroll;
-        for (var line : font.split(Component.literal(DETAILS[chapter]), bodyWidth)) {
+        for (var line : font.split(Component.literal((chapter<DETAILS.length?DETAILS[chapter]:dev.yuni.ashenprotocol.campaign.CampaignJournal.detail(chapter))), bodyWidth)) {
             g.drawString(font, line, bodyX, y, 0xffc6d3df); y += 12;
         }
         g.disableScissor();

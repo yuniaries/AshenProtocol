@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:dawn_fragment"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:dawn_bricks",
+    "count": 8
+  }
+}

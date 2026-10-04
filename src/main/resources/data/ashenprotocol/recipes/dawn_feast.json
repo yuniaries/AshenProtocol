@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:memory_herb"
+    },
+    {
+      "item": "ashenprotocol:tide_rice"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "ashenprotocol:healing_extract"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:dawn_feast",
+    "count": 1
+  }
+}

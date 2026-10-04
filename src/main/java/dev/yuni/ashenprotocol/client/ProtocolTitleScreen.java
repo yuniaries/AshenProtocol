@@ -12,12 +12,12 @@ import net.minecraftforge.client.gui.ModListScreen;
 
 public final class ProtocolTitleScreen extends Screen {
     public static final String PROJECT_URL = "https://github.com/yuniaries/AshenProtocol";
-    public ProtocolTitleScreen() { super(Component.literal("灰烬协议：回声网络")); }
+    public ProtocolTitleScreen() { super(Component.literal("灰烬协议：生态重启")); }
     private void button(String name, int x, int y, int w, Button.OnPress action) {
         addRenderableWidget(Button.builder(Component.literal(name), action).bounds(x, y, w, 20).build());
     }
     @Override protected void init() {
-        minecraft.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.3.0");
+        minecraft.getWindow().setTitle("灰烬协议：生态重启 | yuniaries | 1.0.0");
         int x = width / 2 - 100, y = Math.max(68, height / 2 - 55);
         button("进入世界", x, y, 200, b -> minecraft.setScreen(new SelectWorldScreen(this)));
         button("连接服务器", x, y + 22, 200, b -> minecraft.setScreen(new JoinMultiplayerScreen(this)));
@@ -34,9 +34,9 @@ public final class ProtocolTitleScreen extends Screen {
         for (int y = 0; y < height; y += 32) g.fill(0, y, width, y + 1, 0x142bddcf);
         int mid = width / 2;
         g.drawCenteredString(font, "ASHEN PROTOCOL", mid, Math.max(10, height / 2 - 113), 0xff63e9db);
-        g.drawCenteredString(font, "灰烬协议：回声网络", mid, Math.max(30, height / 2 - 88), 0xfff2eadb);
+        g.drawCenteredString(font, "灰烬协议：生态重启", mid, Math.max(30, height / 2 - 88), 0xfff2eadb);
         g.drawCenteredString(font, "每一次重建，都需要面对力量的代价。", mid, Math.max(48, height / 2 - 70), 0xffa1b4c5);
-        g.drawString(font, "灰烬协议 0.3.0 · yuniaries", 8, height - 12, 0xff899aa9);
+        g.drawString(font, "灰烬协议 1.0.0 · yuniaries", 8, height - 12, 0xff899aa9);
         super.render(g, mouseX, mouseY, delta);
     }
     @Override public boolean shouldCloseOnEsc() { return false; }

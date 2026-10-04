@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "ashenprotocol:memory_herb"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:field_bandage",
+    "count": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:deep_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:abyss_core"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:echo_leggings",
+    "count": 1
+  }
+}

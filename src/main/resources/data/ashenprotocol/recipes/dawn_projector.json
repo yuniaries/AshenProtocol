@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:dawn_core"
+    },
+    {
+      "item": "ashenprotocol:harmonic_ingot"
+    },
+    {
+      "item": "ashenprotocol:navigation_array"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:dawn_projector",
+    "count": 1
+  }
+}

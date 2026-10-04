@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:steel_tiles",
+    "count": 8
+  }
+}

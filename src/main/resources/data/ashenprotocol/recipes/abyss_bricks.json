@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:deep_ingot"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:abyss_bricks",
+    "count": 8
+  }
+}

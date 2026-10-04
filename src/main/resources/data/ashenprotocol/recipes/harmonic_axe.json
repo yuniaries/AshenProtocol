@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IC ",
+    "IS ",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:harmonic_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:dawn_core"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:harmonic_axe",
+    "count": 1
+  }
+}

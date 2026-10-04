@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:root_resin"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:root_lamp",
+    "count": 8
+  }
+}

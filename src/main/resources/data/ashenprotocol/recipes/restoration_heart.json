@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:restoration_cell"
+    },
+    {
+      "item": "ashenprotocol:memory_matrix"
+    },
+    {
+      "item": "ashenprotocol:bio_fuel"
+    },
+    {
+      "item": "ashenprotocol:water_filter"
+    },
+    {
+      "item": "ashenprotocol:precision_gear"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:restoration_heart",
+    "count": 1
+  }
+}

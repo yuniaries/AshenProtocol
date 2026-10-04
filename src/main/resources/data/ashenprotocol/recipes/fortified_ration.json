@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:echo_bean"
+    },
+    {
+      "item": "ashenprotocol:ash_wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "ashenprotocol:healing_extract"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:fortified_ration",
+    "count": 1
+  }
+}

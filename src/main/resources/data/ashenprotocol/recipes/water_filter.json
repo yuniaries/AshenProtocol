@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:filter_mesh"
+    },
+    {
+      "item": "ashenprotocol:pump_head"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:water_filter",
+    "count": 1
+  }
+}

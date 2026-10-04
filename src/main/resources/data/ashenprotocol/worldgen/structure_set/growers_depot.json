@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "ashenprotocol:growers_depot",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 22,
+    "separation": 9,
+    "salt": 921731
+  }
+}

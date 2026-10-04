@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "ashenprotocol:block/sun_pepper_7"
+  }
+}

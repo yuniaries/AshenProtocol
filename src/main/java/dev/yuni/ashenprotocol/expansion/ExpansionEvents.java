@@ -13,6 +13,6 @@ public final class ExpansionEvents {
         for(int i=0;i<ExpansionContent.ENEMIES.length;i++) e.put(ExpansionContent.MOBS.get(ExpansionContent.ENEMIES[i]).get(),ProtocolMob.attributes(i).build());
     }
     @SubscribeEvent public static void placements(SpawnPlacementRegisterEvent e) {
-        for(int i=0;i<4;i++) e.register(ExpansionContent.MOBS.get(ExpansionContent.ENEMIES[i]).get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+        for(int i:new int[]{0,1,2,3,8,9,10,11}) e.register(ExpansionContent.MOBS.get(ExpansionContent.ENEMIES[i]).get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }

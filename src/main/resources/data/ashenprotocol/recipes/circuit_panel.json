@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:signal_circuit"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:circuit_panel",
+    "count": 8
+  }
+}

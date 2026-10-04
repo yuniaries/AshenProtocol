@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:rift_melon"
+    },
+    {
+      "item": "ashenprotocol:signal_berry"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "ashenprotocol:healing_extract"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:guardian_feast",
+    "count": 1
+  }
+}

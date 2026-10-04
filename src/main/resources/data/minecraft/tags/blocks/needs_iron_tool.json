@@ -1,8 +1,22 @@
 {
   "replace": false,
   "values": [
+    "ashenprotocol:archive_decoder",
     "ashenprotocol:ash_ore",
+    "ashenprotocol:bio_refinery",
+    "ashenprotocol:biosphere_restorer",
+    "ashenprotocol:carbon_kiln",
+    "ashenprotocol:circuit_assembler",
+    "ashenprotocol:compost_processor",
+    "ashenprotocol:fiber_spinner",
+    "ashenprotocol:field_kitchen",
+    "ashenprotocol:herbal_extractor",
+    "ashenprotocol:matrix_compressor",
+    "ashenprotocol:memory_ore",
+    "ashenprotocol:phase_assembler",
+    "ashenprotocol:precision_lathe",
     "ashenprotocol:signal_ore",
-    "ashenprotocol:memory_ore"
+    "ashenprotocol:steel_foundry",
+    "ashenprotocol:wire_drawer"
   ]
 }

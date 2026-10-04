@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "FCF",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:steel_ingot"
+    },
+    "P": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "F": {
+      "item": "ashenprotocol:copper_wire"
+    },
+    "C": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:circuit_assembler",
+    "count": 1
+  }
+}

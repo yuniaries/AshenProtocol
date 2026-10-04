@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "C I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:harmonic_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:dawn_core"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:harmonic_boots",
+    "count": 1
+  }
+}

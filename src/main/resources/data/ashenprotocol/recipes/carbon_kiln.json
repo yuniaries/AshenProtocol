@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "FCF",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "P": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "F": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "C": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:carbon_kiln",
+    "count": 1
+  }
+}

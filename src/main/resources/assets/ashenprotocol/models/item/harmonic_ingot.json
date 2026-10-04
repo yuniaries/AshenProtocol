@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ashenprotocol:item/harmonic_ingot"
+  }
+}

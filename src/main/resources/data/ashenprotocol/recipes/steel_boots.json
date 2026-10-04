@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "C I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:steel_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:signal_circuit"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:steel_boots",
+    "count": 1
+  }
+}

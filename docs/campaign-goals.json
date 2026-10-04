@@ -1,0 +1,362 @@
+[
+  {
+    "index": 24,
+    "title": "耕地与余灰",
+    "item": "ash_wheat"
+  },
+  {
+    "index": 25,
+    "title": "信号浆果",
+    "item": "signal_berry"
+  },
+  {
+    "index": 26,
+    "title": "潮汐水田",
+    "item": "tide_rice"
+  },
+  {
+    "index": 27,
+    "title": "霜根储备",
+    "item": "frost_root"
+  },
+  {
+    "index": 28,
+    "title": "日椒温室",
+    "item": "sun_pepper"
+  },
+  {
+    "index": 29,
+    "title": "回声豆田",
+    "item": "echo_bean"
+  },
+  {
+    "index": 30,
+    "title": "裂瓜培育",
+    "item": "rift_melon"
+  },
+  {
+    "index": 31,
+    "title": "记忆药圃",
+    "item": "memory_herb"
+  },
+  {
+    "index": 32,
+    "title": "远征口粮",
+    "item": "expedition_meal"
+  },
+  {
+    "index": 33,
+    "title": "现场救护",
+    "item": "field_bandage"
+  },
+  {
+    "index": 34,
+    "title": "毒性净化",
+    "item": "purity_capsule"
+  },
+  {
+    "index": 35,
+    "title": "碳化生产",
+    "item": "carbon_dust"
+  },
+  {
+    "index": 36,
+    "title": "拉丝生产",
+    "item": "copper_wire"
+  },
+  {
+    "index": 37,
+    "title": "钢铁路线",
+    "item": "steel_ingot"
+  },
+  {
+    "index": 38,
+    "title": "信号电路",
+    "item": "signal_circuit"
+  },
+  {
+    "index": 39,
+    "title": "堆肥循环",
+    "item": "fertile_compost"
+  },
+  {
+    "index": 40,
+    "title": "生物燃料",
+    "item": "bio_fuel"
+  },
+  {
+    "index": 41,
+    "title": "提取药剂",
+    "item": "healing_extract"
+  },
+  {
+    "index": 42,
+    "title": "回声纺织",
+    "item": "echo_fiber"
+  },
+  {
+    "index": 43,
+    "title": "晶格框架",
+    "item": "lattice_frame"
+  },
+  {
+    "index": 44,
+    "title": "钢铁护甲",
+    "item": "steel_chestplate"
+  },
+  {
+    "index": 45,
+    "title": "装配转子",
+    "item": "rotor"
+  },
+  {
+    "index": 46,
+    "title": "精密齿轮",
+    "item": "precision_gear"
+  },
+  {
+    "index": 47,
+    "title": "水流过滤",
+    "item": "water_filter"
+  },
+  {
+    "index": 48,
+    "title": "密封档案",
+    "item": "sealed_archive"
+  },
+  {
+    "index": 49,
+    "title": "记忆矩阵",
+    "item": "memory_matrix"
+  },
+  {
+    "index": 50,
+    "title": "契约终端",
+    "item": "contract_terminal"
+  },
+  {
+    "index": 51,
+    "title": "完成委托",
+    "item": null
+  },
+  {
+    "index": 52,
+    "title": "远征信标",
+    "item": "expedition_beacon"
+  },
+  {
+    "index": 53,
+    "title": "相位线圈",
+    "item": "phase_coil"
+  },
+  {
+    "index": 54,
+    "title": "导航阵列",
+    "item": "navigation_array"
+  },
+  {
+    "index": 55,
+    "title": "深层入口",
+    "item": "deep_gate"
+  },
+  {
+    "index": 56,
+    "title": "深矿采集",
+    "item": "deep_ore_fragment"
+  },
+  {
+    "index": 57,
+    "title": "深层冶炼",
+    "item": "deep_ingot"
+  },
+  {
+    "index": 58,
+    "title": "虚空矩阵",
+    "item": "void_matrix"
+  },
+  {
+    "index": 59,
+    "title": "深渊钥匙",
+    "item": "abyss_key"
+  },
+  {
+    "index": 60,
+    "title": "深渊武装",
+    "item": "echo_chestplate"
+  },
+  {
+    "index": 61,
+    "title": "深渊咏者",
+    "item": null
+  },
+  {
+    "index": 62,
+    "title": "深渊核心",
+    "item": "abyss_core"
+  },
+  {
+    "index": 63,
+    "title": "风暴晶屑",
+    "item": "storm_shard"
+  },
+  {
+    "index": 64,
+    "title": "风暴连射",
+    "item": "storm_repeater"
+  },
+  {
+    "index": 65,
+    "title": "风暴钥匙",
+    "item": "storm_key"
+  },
+  {
+    "index": 66,
+    "title": "风暴君王",
+    "item": null
+  },
+  {
+    "index": 67,
+    "title": "风暴核心",
+    "item": "storm_core"
+  },
+  {
+    "index": 68,
+    "title": "根系树脂",
+    "item": "root_resin"
+  },
+  {
+    "index": 69,
+    "title": "根源钥匙",
+    "item": "root_key"
+  },
+  {
+    "index": 70,
+    "title": "根系营养",
+    "item": "nutrient_gel"
+  },
+  {
+    "index": 71,
+    "title": "根源母体",
+    "item": null
+  },
+  {
+    "index": 72,
+    "title": "根源核心",
+    "item": "root_core"
+  },
+  {
+    "index": 73,
+    "title": "曙光碎片",
+    "item": "dawn_fragment"
+  },
+  {
+    "index": 74,
+    "title": "曙光钥匙",
+    "item": "dawn_key"
+  },
+  {
+    "index": 75,
+    "title": "曙光执政官",
+    "item": null
+  },
+  {
+    "index": 76,
+    "title": "曙光核心",
+    "item": "dawn_core"
+  },
+  {
+    "index": 77,
+    "title": "生命圈核心",
+    "item": null
+  },
+  {
+    "index": 78,
+    "title": "六波远征",
+    "item": null
+  },
+  {
+    "index": 79,
+    "title": "完整生态复苏",
+    "item": null
+  },
+  {
+    "index": 80,
+    "title": "百次生产",
+    "item": null
+  },
+  {
+    "index": 81,
+    "title": "自动运输",
+    "item": null
+  },
+  {
+    "index": 82,
+    "title": "农田丰收",
+    "item": null
+  },
+  {
+    "index": 83,
+    "title": "十次委托",
+    "item": null
+  },
+  {
+    "index": 84,
+    "title": "战地医护",
+    "item": null
+  },
+  {
+    "index": 85,
+    "title": "相位量产",
+    "item": null
+  },
+  {
+    "index": 86,
+    "title": "生命圈启动",
+    "item": null
+  },
+  {
+    "index": 87,
+    "title": "坐标锚定",
+    "item": null
+  },
+  {
+    "index": 88,
+    "title": "跨越深层",
+    "item": null
+  },
+  {
+    "index": 89,
+    "title": "失序全境",
+    "item": null
+  },
+  {
+    "index": 90,
+    "title": "深层全境",
+    "item": null
+  },
+  {
+    "index": 91,
+    "title": "远征老兵",
+    "item": null
+  },
+  {
+    "index": 92,
+    "title": "八阶守卫",
+    "item": null
+  },
+  {
+    "index": 93,
+    "title": "工业基石",
+    "item": null
+  },
+  {
+    "index": 94,
+    "title": "作物齐备",
+    "item": null
+  },
+  {
+    "index": 95,
+    "title": "无熵新世界",
+    "item": null
+  }
+]

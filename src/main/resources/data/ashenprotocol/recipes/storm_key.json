@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:abyss_core"
+    },
+    {
+      "item": "ashenprotocol:phase_coil"
+    },
+    {
+      "item": "ashenprotocol:storm_shard"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:storm_key",
+    "count": 1
+  }
+}

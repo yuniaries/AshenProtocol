@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:sun_pepper"
+    },
+    {
+      "item": "ashenprotocol:memory_herb"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:pepper_ration",
+    "count": 1
+  }
+}

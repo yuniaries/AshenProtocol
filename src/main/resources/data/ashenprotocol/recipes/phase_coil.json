@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:rift_circuit"
+    },
+    {
+      "item": "ashenprotocol:conductive_thread"
+    },
+    {
+      "item": "ashenprotocol:rift_ingot"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:phase_coil",
+    "count": 1
+  }
+}

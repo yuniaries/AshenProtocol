@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:memory_herb"
+    },
+    {
+      "item": "ashenprotocol:tide_rice"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:bean_bread",
+    "count": 1
+  }
+}

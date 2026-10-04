@@ -1,0 +1,60 @@
+{
+  "crops": [
+    "ash_wheat",
+    "signal_berry",
+    "tide_rice",
+    "frost_root",
+    "sun_pepper",
+    "echo_bean",
+    "rift_melon",
+    "memory_herb"
+  ],
+  "machines": [
+    "ash_press",
+    "crystal_refinery",
+    "echo_loom",
+    "alloy_forge",
+    "restoration_array",
+    "world_anchor",
+    "carbon_kiln",
+    "wire_drawer",
+    "circuit_assembler",
+    "steel_foundry",
+    "compost_processor",
+    "bio_refinery",
+    "field_kitchen",
+    "herbal_extractor",
+    "fiber_spinner",
+    "matrix_compressor",
+    "archive_decoder",
+    "precision_lathe",
+    "phase_assembler",
+    "biosphere_restorer"
+  ],
+  "additionalSites": [
+    "growers_depot",
+    "signal_exchange",
+    "storm_observatory",
+    "root_sanctuary",
+    "abyss_cathedral",
+    "storm_citadel",
+    "root_vault",
+    "dawn_spire",
+    "memory_lab",
+    "echo_quarry",
+    "nether_pumpworks",
+    "ender_foundry"
+  ],
+  "newRegions": [
+    "abyss_shore",
+    "storm_plateau",
+    "root_canopy",
+    "dawn_wastes",
+    "memory_fen",
+    "harmonic_ridge"
+  ],
+  "registeredExpansionItems": 241,
+  "coreItems": 8,
+  "goalCount": 96,
+  "recipeCount": 179
+}

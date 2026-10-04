@@ -1,0 +1,15 @@
+{
+  "name": "ashenprotocol:abyss_cathedral",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ashenprotocol:abyss_cathedral",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

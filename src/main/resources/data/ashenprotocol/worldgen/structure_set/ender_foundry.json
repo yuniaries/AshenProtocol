@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "ashenprotocol:ender_foundry",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 22,
+    "separation": 9,
+    "salt": 923260
+  }
+}

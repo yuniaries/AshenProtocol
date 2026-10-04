@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:memory_shard"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:memory_tiles",
+    "count": 8
+  }
+}

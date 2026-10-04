@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:atlas_core"
+    },
+    {
+      "item": "ashenprotocol:navigation_array"
+    },
+    {
+      "item": "ashenprotocol:memory_matrix"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:deep_gate",
+    "count": 1
+  }
+}

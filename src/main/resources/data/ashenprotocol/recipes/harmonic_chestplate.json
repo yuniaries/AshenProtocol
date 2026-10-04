@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:harmonic_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:dawn_core"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:harmonic_chestplate",
+    "count": 1
+  }
+}

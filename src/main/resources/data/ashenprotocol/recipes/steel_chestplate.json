@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:steel_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:signal_circuit"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:steel_chestplate",
+    "count": 1
+  }
+}

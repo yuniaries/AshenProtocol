@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:echo_bean"
+    },
+    {
+      "item": "ashenprotocol:ash_wheat"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:bio_pulp",
+    "count": 1
+  }
+}

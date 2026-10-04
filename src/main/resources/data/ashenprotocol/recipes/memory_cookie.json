@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:sun_pepper"
+    },
+    {
+      "item": "ashenprotocol:memory_herb"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "ashenprotocol:healing_extract"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:memory_cookie",
+    "count": 1
+  }
+}

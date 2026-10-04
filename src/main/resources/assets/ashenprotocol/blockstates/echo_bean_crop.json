@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "ashenprotocol:block/echo_bean_0"
+    },
+    "age=1": {
+      "model": "ashenprotocol:block/echo_bean_1"
+    },
+    "age=2": {
+      "model": "ashenprotocol:block/echo_bean_2"
+    },
+    "age=3": {
+      "model": "ashenprotocol:block/echo_bean_3"
+    },
+    "age=4": {
+      "model": "ashenprotocol:block/echo_bean_4"
+    },
+    "age=5": {
+      "model": "ashenprotocol:block/echo_bean_5"
+    },
+    "age=6": {
+      "model": "ashenprotocol:block/echo_bean_6"
+    },
+    "age=7": {
+      "model": "ashenprotocol:block/echo_bean_7"
+    }
+  }
+}

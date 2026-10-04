@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:tide_rice"
+    },
+    {
+      "item": "ashenprotocol:echo_bean"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:thermal_ration",
+    "count": 1
+  }
+}

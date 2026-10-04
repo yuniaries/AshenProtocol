@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:phase_coil"
+    },
+    {
+      "item": "ashenprotocol:atlas_circuit"
+    },
+    {
+      "item": "ashenprotocol:sun_disk"
+    },
+    {
+      "item": "ashenprotocol:frost_lens"
+    },
+    {
+      "item": "ashenprotocol:solar_cell"
+    },
+    {
+      "item": "ashenprotocol:anchor_module"
+    },
+    {
+      "item": "ashenprotocol:lattice_frame"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:navigation_array",
+    "count": 1
+  }
+}

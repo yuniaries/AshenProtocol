@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:frost_root"
+    },
+    {
+      "item": "ashenprotocol:rift_melon"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:root_stew",
+    "count": 1
+  }
+}

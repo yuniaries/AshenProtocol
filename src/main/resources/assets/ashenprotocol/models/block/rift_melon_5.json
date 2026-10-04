@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "ashenprotocol:block/rift_melon_5"
+  }
+}

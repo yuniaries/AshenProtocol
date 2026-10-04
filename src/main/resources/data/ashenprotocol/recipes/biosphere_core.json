@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:restoration_heart"
+    },
+    {
+      "item": "ashenprotocol:abyss_core"
+    },
+    {
+      "item": "ashenprotocol:storm_core"
+    },
+    {
+      "item": "ashenprotocol:root_core"
+    },
+    {
+      "item": "ashenprotocol:dawn_core"
+    },
+    {
+      "item": "ashenprotocol:navigation_array"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:biosphere_core",
+    "count": 1
+  }
+}

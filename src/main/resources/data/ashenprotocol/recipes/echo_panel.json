@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:woven_echo"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:echo_panel",
+    "count": 8
+  }
+}

@@ -35,7 +35,7 @@ public final class ClientEvents {
                     mc.options.save();
                 }
             }
-            if (mc.player.tickCount % 20 == 0) mc.getWindow().setTitle("灰烬协议：回声网络 | yuniaries | 0.3.0");
+            if (mc.player.tickCount % 20 == 0) mc.getWindow().setTitle("灰烬协议：生态重启 | yuniaries | 1.0.0");
             while (JOURNAL.consumeClick()) mc.setScreen(new ProtocolJournalScreen(null));
         }
     }

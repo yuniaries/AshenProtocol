@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "FCF",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:deep_ingot"
+    },
+    "P": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "F": {
+      "item": "ashenprotocol:copper_wire"
+    },
+    "C": {
+      "item": "ashenprotocol:archive_chip"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:archive_decoder",
+    "count": 1
+  }
+}

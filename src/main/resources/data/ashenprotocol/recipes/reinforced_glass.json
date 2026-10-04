@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:reinforced_glass",
+    "count": 8
+  }
+}

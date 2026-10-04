@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ashenprotocol:block/biosphere_restorer"
+  }
+}

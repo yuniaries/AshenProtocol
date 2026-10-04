@@ -1,0 +1,81 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.6,
+  "downfall": 0.8,
+  "effects": {
+    "sky_color": 2506036,
+    "water_color": 3631441,
+    "water_fog_color": 3631441,
+    "fog_color": 2506036,
+    "grass_color": 4289599,
+    "foliage_color": 4289599,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "ashenprotocol:root_keeper",
+        "weight": 35,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [
+      {
+        "type": "minecraft:sheep",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:pig",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 3
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [
+      "minecraft:lake_lava_underground"
+    ],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_redstone",
+      "minecraft:ore_diamond",
+      "minecraft:ore_gold"
+    ],
+    [],
+    [],
+    [
+      "minecraft:trees_plains",
+      "minecraft:patch_grass_plain",
+      "minecraft:flower_default"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
+  ]
+}

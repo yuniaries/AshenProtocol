@@ -41,6 +41,7 @@ public final class RuntimeProbe {
         server.execute(() -> {
             try {
                 ExpansionProbe.run(server);
+                CampaignProbe.run(server);
                 var level = server.overworld();
                 var data = ProtocolSavedData.get(server);
                 for (String recipe : new String[]{"protocol_fragment","entropy_crystal","entropy_meter","protocol_relay","phase_pistol","field_guide","entropy_sink","echo_recycling"}) {
@@ -72,7 +73,7 @@ public final class RuntimeProbe {
                 weapon.use(level,player,InteractionHand.MAIN_HAND);
                 check(data.getEntropy()==4 && pistol.getDamageValue()==2, "empty ammunition does not fire");
                 target.discard();
-                var pos = new BlockPos(10,100,0);level.setBlockAndUpdate(pos,ModBlocks.PROTOCOL_RELAY.get().defaultBlockState());
+                var pos = new BlockPos(10,100,0);level.setBlockAndUpdate(pos,Blocks.AIR.defaultBlockState());level.setBlockAndUpdate(pos.east(),Blocks.AIR.defaultBlockState());level.setBlockAndUpdate(pos,ModBlocks.PROTOCOL_RELAY.get().defaultBlockState());
                 var relay=(ProtocolRelayBlockEntity)level.getBlockEntity(pos);
                 player.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(ModItems.PROTOCOL_FRAGMENT.get(),3));
                 ModBlocks.PROTOCOL_RELAY.get().use(level.getBlockState(pos),level,pos,player,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(pos),Direction.UP,pos,false));

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:healing_extract"
+    },
+    {
+      "item": "ashenprotocol:nutrient_gel"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:restoration_salve",
+    "count": 2
+  }
+}

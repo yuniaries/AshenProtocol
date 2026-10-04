@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "FCF",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:deep_ingot"
+    },
+    "P": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "F": {
+      "item": "ashenprotocol:copper_wire"
+    },
+    "C": {
+      "item": "ashenprotocol:restoration_heart"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:biosphere_restorer",
+    "count": 1
+  }
+}

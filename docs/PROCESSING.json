@@ -1,0 +1,162 @@
+{
+  "ash_press": {
+    "input": "raw_ash",
+    "output": "ash_ingot",
+    "count": 1,
+    "ticks": 80,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "crystal_refinery": {
+    "input": "signal_shard",
+    "output": "signal_ingot",
+    "count": 1,
+    "ticks": 120,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "echo_loom": {
+    "input": "echo_residue",
+    "output": "woven_echo",
+    "count": 2,
+    "ticks": 160,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "alloy_forge": {
+    "input": "rift_dust",
+    "output": "rift_ingot",
+    "count": 1,
+    "ticks": 200,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "restoration_array": {
+    "input": "restoration_cell",
+    "output": "",
+    "count": 0,
+    "ticks": 200,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "world_anchor": {
+    "input": "atlas_core",
+    "output": "",
+    "count": 0,
+    "ticks": 600,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "carbon_kiln": {
+    "input": "minecraft:coal",
+    "output": "carbon_dust",
+    "count": 2,
+    "ticks": 120,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "wire_drawer": {
+    "input": "minecraft:copper_ingot",
+    "output": "copper_wire",
+    "count": 4,
+    "ticks": 100,
+    "secondary": "",
+    "secondaryCount": 0
+  },
+  "circuit_assembler": {
+    "input": "signal_ingot",
+    "output": "signal_circuit",
+    "count": 1,
+    "ticks": 160,
+    "secondary": "copper_wire",
+    "secondaryCount": 2
+  },
+  "steel_foundry": {
+    "input": "minecraft:iron_ingot",
+    "output": "steel_ingot",
+    "count": 1,
+    "ticks": 200,
+    "secondary": "carbon_dust",
+    "secondaryCount": 2
+  },
+  "compost_processor": {
+    "input": "ash_wheat",
+    "output": "fertile_compost",
+    "count": 2,
+    "ticks": 100,
+    "secondary": "minecraft:bone_meal",
+    "secondaryCount": 1
+  },
+  "bio_refinery": {
+    "input": "bio_pulp",
+    "output": "bio_fuel",
+    "count": 2,
+    "ticks": 160,
+    "secondary": "fertile_compost",
+    "secondaryCount": 1
+  },
+  "field_kitchen": {
+    "input": "tide_rice",
+    "output": "expedition_meal",
+    "count": 2,
+    "ticks": 140,
+    "secondary": "sun_pepper",
+    "secondaryCount": 1
+  },
+  "herbal_extractor": {
+    "input": "memory_herb",
+    "output": "healing_extract",
+    "count": 2,
+    "ticks": 160,
+    "secondary": "signal_berry",
+    "secondaryCount": 2
+  },
+  "fiber_spinner": {
+    "input": "woven_echo",
+    "output": "echo_fiber",
+    "count": 4,
+    "ticks": 120,
+    "secondary": "bio_pulp",
+    "secondaryCount": 1
+  },
+  "matrix_compressor": {
+    "input": "memory_shard",
+    "output": "memory_matrix",
+    "count": 1,
+    "ticks": 240,
+    "secondary": "crystal_matrix",
+    "secondaryCount": 2
+  },
+  "archive_decoder": {
+    "input": "sealed_archive",
+    "output": "archive_chip",
+    "count": 3,
+    "ticks": 240,
+    "secondary": "signal_circuit",
+    "secondaryCount": 1
+  },
+  "precision_lathe": {
+    "input": "steel_ingot",
+    "output": "precision_gear",
+    "count": 2,
+    "ticks": 160,
+    "secondary": "copper_wire",
+    "secondaryCount": 2
+  },
+  "phase_assembler": {
+    "input": "deep_ingot",
+    "output": "harmonic_ingot",
+    "count": 1,
+    "ticks": 320,
+    "secondary": "void_matrix",
+    "secondaryCount": 1
+  },
+  "biosphere_restorer": {
+    "input": "biosphere_core",
+    "output": "",
+    "count": 0,
+    "ticks": 400,
+    "secondary": "bio_fuel",
+    "secondaryCount": 4
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:storm_shard"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:storm_bricks",
+    "count": 8
+  }
+}

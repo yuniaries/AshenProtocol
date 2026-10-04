@@ -24,15 +24,15 @@ public final class ProtocolMob extends Monster {
     private int skillTicks;
     private final ServerBossEvent bar;
     public ProtocolMob(EntityType<? extends Monster> type, Level level, int variant) {
-        super(type,level); this.variant=variant; xpReward=variant>=4 ? 80+(variant-4)*40 : 12;
+        super(type,level); this.variant=variant; xpReward=ExpansionContent.bossVariant(variant) ? 80+variant*20 : 12+variant;
         bar=new ServerBossEvent(getDisplayName(),BossEvent.BossBarColor.PURPLE,BossEvent.BossBarOverlay.PROGRESS);
     }
     public int variant() { return variant; }
-    public boolean isBoss() { return variant>=4; }
+    public boolean isBoss() { return ExpansionContent.bossVariant(variant); }
     public void setHome(BlockPos p) { home=p.immutable(); }
     public static AttributeSupplier.Builder attributes(int i) {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,new double[]{28,36,44,48,160,220,300,420}[i]).add(Attributes.MOVEMENT_SPEED,i>=4 ? .25 : .28)
-            .add(Attributes.ATTACK_DAMAGE,new double[]{4,5,6,7,7,8,10,12}[i]).add(Attributes.FOLLOW_RANGE,40).add(Attributes.ARMOR,i>=4 ? 6 : 2).add(Attributes.KNOCKBACK_RESISTANCE,i>=4 ? .65 : .1);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,new double[]{28,36,44,48,160,220,300,420,64,72,84,96,520,620,720,900}[i]).add(Attributes.MOVEMENT_SPEED,ExpansionContent.bossVariant(i) ? .25 : .28)
+            .add(Attributes.ATTACK_DAMAGE,new double[]{4,5,6,7,7,8,10,12,8,9,10,11,13,14,15,17}[i]).add(Attributes.FOLLOW_RANGE,40).add(Attributes.ARMOR,ExpansionContent.bossVariant(i) ? 6 : 2).add(Attributes.KNOCKBACK_RESISTANCE,ExpansionContent.bossVariant(i) ? .65 : .1);
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this)); goalSelector.addGoal(2,new MeleeAttackGoal(this,1,true));
@@ -75,6 +75,32 @@ public final class ProtocolMob extends Monster {
                     target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0));
                     sl.sendParticles(ParticleTypes.PORTAL,getX(),getY()+1,getZ(),35,.5,1,.5,.2);
                 }
+                case 12 -> {
+                    target.addEffect(new MobEffectInstance(MobEffects.DARKNESS,100,0));
+                    if(distanceToSqr(target)<100)target.hurt(damageSources().mobAttack(this),empowered?12:8);
+                    sl.sendParticles(ParticleTypes.SOUL,getX(),getY()+1,getZ(),60,4,1,4,.04);
+                }
+                case 13 -> {
+                    // The pulse requires sight and leaves terrain and nearby buildings intact.
+                    target.hurt(damageSources().mobAttack(this),empowered?10:7);
+                    var away=target.position().subtract(position()).normalize();target.push(away.x*.8,.25,away.z*.8);
+                    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0));
+                    sl.sendParticles(ParticleTypes.ELECTRIC_SPARK,target.getX(),target.getY()+1,target.getZ(),50,.7,1,.7,.1);
+                }
+                case 14 -> {
+                    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80,1));
+                    if(distanceToSqr(target)<64)target.hurt(damageSources().mobAttack(this),9);
+                    heal(empowered?10:6);
+                    sl.sendParticles(ParticleTypes.HAPPY_VILLAGER,getX(),getY()+1,getZ(),40,2,1,2,.1);
+                }
+                case 15 -> {
+                    if(distanceToSqr(target)<144){target.hurt(damageSources().mobAttack(this),empowered?14:10);target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0));}
+                    sl.sendParticles(ParticleTypes.END_ROD,getX(),getY()+1,getZ(),80,5,1,5,.1);
+                    if(sl.getEntitiesOfClass(ProtocolMob.class,getBoundingBox().inflate(32),m->!m.isBoss()).size()<3){
+                        var guard=ExpansionContent.MOBS.get("dawn_raider").get().create(sl);guard.moveTo(getX()+3,getY(),getZ()+1,0,0);
+                        if(sl.noCollision(guard)&&sl.getBlockState(guard.blockPosition().below()).isSolid()){guard.setTarget(target);sl.addFreshEntity(guard);}
+                    }
+                }
                 case 7 -> { target.addEffect(new MobEffectInstance(MobEffects.DARKNESS,50,0)); target.hurt(damageSources().mobAttack(this),7);
                     if(sl.getEntitiesOfClass(ProtocolMob.class,getBoundingBox().inflate(32),m->!m.isBoss()).size()<4) {
                         var add=ExpansionContent.MOBS.get("rift_hound").get().create(sl); add.moveTo(getX()+2,getY(),getZ()+2,0,0);
@@ -85,13 +111,18 @@ public final class ProtocolMob extends Monster {
         } else if(distanceToSqr(target)<8*8) {
             if(variant==1) target.addEffect(new MobEffectInstance(MobEffects.POISON,40,0));
             if(variant==2) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,40,0));
+            if(variant==8) target.addEffect(new MobEffectInstance(MobEffects.DARKNESS,40,0));
+            if(variant==9) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,50,0));
+            if(variant==10) target.addEffect(new MobEffectInstance(MobEffects.POISON,40,0));
+            if(variant==11) target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,60,0));
             if(variant==3) target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,40,0));
         }
     }
     @Override public void die(DamageSource source) {
         super.die(source); if(level().isClientSide||!isBoss()) return;
         if(source.getEntity() instanceof ServerPlayer p) {
-            dev.yuni.ashenprotocol.progress.Progression.complete(p, new int[]{12,15,19,22}[variant-4]);
+            for(int i=0;i<ExpansionContent.BOSS_VARIANTS.length;i++)if(variant==ExpansionContent.BOSS_VARIANTS[i])dev.yuni.ashenprotocol.progress.Progression.markBoss(p,i);
+            dev.yuni.ashenprotocol.progress.Progression.complete(p, variant<8?new int[]{12,15,19,22}[variant-4]:new int[]{61,66,71,75}[variant-12]);
             dev.yuni.ashenprotocol.protocol.ProtocolSavedData.get(p.getServer()).addIntegrity(100+(variant-4)*100);
         }
     }

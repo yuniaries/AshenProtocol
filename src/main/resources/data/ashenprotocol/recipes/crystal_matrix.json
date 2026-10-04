@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:signal_ingot"
+    },
+    {
+      "item": "ashenprotocol:entropy_crystal"
+    },
+    {
+      "item": "ashenprotocol:carbon_plate"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:crystal_matrix",
+    "count": 1
+  }
+}

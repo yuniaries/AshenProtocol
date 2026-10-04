@@ -37,11 +37,11 @@ public final class ClientSmoke {
                 player.setGameMode(net.minecraft.world.level.GameType.CREATIVE);
                 player.teleportTo(player.serverLevel(),player.getX(),player.getY(),player.getZ(),0,0);
                 player.setItemSlot(net.minecraft.world.entity.EquipmentSlot.CHEST, new ItemStack(dev.yuni.ashenprotocol.expansion.ExpansionContent.item("rift_chestplate")));
-                for(int i=0;i<8;i++) {
+                for(int i=0;i<16;i++) {
                     var mob=dev.yuni.ashenprotocol.expansion.ExpansionContent.MOBS.get(dev.yuni.ashenprotocol.expansion.ExpansionContent.ENEMIES[i]).get().create(player.serverLevel());
-                    mob.setNoAi(true);mob.moveTo(player.getX()+(i-3.5)*2,player.getY(),player.getZ()+9,180,0);player.serverLevel().addFreshEntity(mob);
+                    mob.setNoAi(true);mob.moveTo(player.getX()+(i-7.5)*2,player.getY(),player.getZ()+9,180,0);player.serverLevel().addFreshEntity(mob);
                 }
-                player.inventoryMenu.broadcastChanges();
+                dev.yuni.ashenprotocol.progress.Progression.complete(player,75);player.inventoryMenu.broadcastChanges();
             });
             mc.player.getInventory().selected = 0;
         }
@@ -60,6 +60,7 @@ public final class ClientSmoke {
             Screenshot.grab(mc.gameDirectory, "native-journal.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_JOURNAL: " + c.getString()));
             System.out.println("AP_CLIENT_SMOKE_SUCCESS: network state, real inventory, HUD and J-key journal rendered without social key conflict; milestones=" + ClientState.milestones);
         }
+        if(ticks==110&&!ClientState.completed(75))throw new IllegalStateException("late milestone not synchronized");
         if (ticks == 120) mc.getWindow().setWindowed(2560,1440);
         if (ticks == 130) {
             for(var child:mc.screen.children()) if(child instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().equals("下一组")) { b.onPress();break; }
@@ -103,6 +104,23 @@ public final class ClientSmoke {
         }
         if(ticks==410)mc.setScreen(new dev.yuni.ashenprotocol.client.ProtocolTitleScreen());
         if(ticks==430)Screenshot.grab(mc.gameDirectory,"expansion-menu.png",mc.getMainRenderTarget(),c->System.out.println("AP_CLIENT_MENU_SCREENSHOT: "+c.getString()));
-        if (ticks == 450) mc.stop();
+        if(ticks==450){mc.setScreen(null);var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+            var p=mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);var gate=dev.yuni.ashenprotocol.expansion.ExpansionContent.item("deep_gate");p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(gate));gate.use(p.level(),p,net.minecraft.world.InteractionHand.MAIN_HAND);
+            if(!p.level().dimension().equals(dev.yuni.ashenprotocol.campaign.DeepGate.REALM))throw new IllegalStateException("deep gate failed to enter");System.out.println("AP_CLIENT_DEEP_ENTER_PASS");
+        });}
+        if(ticks==510){var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);p.getAbilities().flying=true;p.onUpdateAbilities();p.teleportTo(p.serverLevel(),p.getX(),p.getY()+15,p.getZ(),-45,20);});}
+        if(ticks==550)Screenshot.grab(mc.gameDirectory,"campaign-deep-realm.png",mc.getMainRenderTarget(),c->System.out.println("AP_CLIENT_DEEP_SCREENSHOT: "+c.getString()));
+        if(ticks==570){var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+            var p=mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);var gate=dev.yuni.ashenprotocol.expansion.ExpansionContent.item("deep_gate");p.getCooldowns().removeCooldown(gate);gate.use(p.level(),p,net.minecraft.world.InteractionHand.MAIN_HAND);
+            if(!p.level().dimension().equals(net.minecraft.world.level.Level.OVERWORLD))throw new IllegalStateException("deep gate failed to return");System.out.println("AP_CLIENT_DEEP_RETURN_PASS");
+        });}
+        if(ticks==600){mc.setScreen(new ProtocolJournalScreen(null));for(int n=0;n<11;n++)for(var child:mc.screen.children())if(child instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().equals("下一组")){b.onPress();break;}
+            for(var child:mc.screen.children())if(child instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().startsWith("96")){b.onPress();break;}
+        }
+        if(ticks==620){Screenshot.grab(mc.gameDirectory,"campaign-final-journal.png",mc.getMainRenderTarget(),c->System.out.println("AP_CLIENT_FINAL_JOURNAL: "+c.getString()));System.out.println("AP_CLIENT_96_GOALS_LAYOUT_PASS");}
+        if(ticks==640){mc.setScreen(null);var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->ArenaClientProbe.prepare(mc.getSingleplayerServer(),uuid));}
+        if(ticks==680){var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->ArenaClientProbe.verify(mc.getSingleplayerServer(),uuid));}
+        if(ticks==700&&!ClientState.completed(95))throw new IllegalStateException("highest mastery milestone did not synchronize");
+        if(ticks==710)mc.stop();
     }
 }

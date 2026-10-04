@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:signal_berry"
+    },
+    {
+      "item": "ashenprotocol:sun_pepper"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:preserved_meat",
+    "count": 1
+  }
+}

@@ -11,7 +11,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 public final class WorkshopBlock extends BaseEntityBlock {
     public final String machine;
-    public WorkshopBlock(Properties p, String id) { super(p); machine = id; }
+    public WorkshopBlock(Properties p, String id) { super(p.isRedstoneConductor((state,level,pos)->false)); machine = id; }
+    @Override public void setPlacedBy(Level l,BlockPos pos,BlockState s,net.minecraft.world.entity.LivingEntity placer,net.minecraft.world.item.ItemStack stack){super.setPlacedBy(l,pos,s,placer,stack);if(!l.isClientSide&&placer instanceof Player p&&l.getBlockEntity(pos) instanceof WorkshopEntity be)be.setOwner(p);}
     public RenderShape getRenderShape(BlockState s) { return RenderShape.MODEL; }
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) { return new WorkshopEntity(p, s); }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level l, BlockState s, BlockEntityType<T> t) { return l.isClientSide ? null : createTickerHelper(t, ExpansionContent.WORKSHOP.get(), WorkshopEntity::tick); }

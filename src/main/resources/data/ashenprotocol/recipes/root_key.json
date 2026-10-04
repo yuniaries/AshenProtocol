@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:storm_core"
+    },
+    {
+      "item": "ashenprotocol:root_resin"
+    },
+    {
+      "item": "ashenprotocol:healing_extract"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:root_key",
+    "count": 1
+  }
+}

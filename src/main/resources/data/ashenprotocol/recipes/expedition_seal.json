@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:rift_core"
+    },
+    {
+      "item": "ashenprotocol:signal_circuit"
+    },
+    {
+      "item": "ashenprotocol:contract_token"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:expedition_seal",
+    "count": 1
+  }
+}

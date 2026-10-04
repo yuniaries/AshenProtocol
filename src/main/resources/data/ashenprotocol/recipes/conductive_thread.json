@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:echo_fiber"
+    },
+    {
+      "item": "ashenprotocol:copper_wire"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:conductive_thread",
+    "count": 1
+  }
+}

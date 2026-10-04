@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:atlas_core"
+    },
+    {
+      "item": "ashenprotocol:steel_ingot"
+    },
+    {
+      "item": "ashenprotocol:phase_coil"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:anchor_module",
+    "count": 1
+  }
+}

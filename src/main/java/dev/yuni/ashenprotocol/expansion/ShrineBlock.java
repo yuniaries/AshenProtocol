@@ -15,11 +15,11 @@ public final class ShrineBlock extends Block {
     @Override public InteractionResult use(BlockState s, Level l, BlockPos pos, Player p, InteractionHand hand, BlockHitResult hit) {
         if (hand!=InteractionHand.MAIN_HAND) return InteractionResult.PASS;
         if (l.isClientSide) return InteractionResult.SUCCESS;
-        var key=ExpansionContent.item(new String[]{"cinder_key","tide_key","rift_key","atlas_key"}[tier]);
+        var key=ExpansionContent.item(ExpansionContent.KEYS[tier]);
         if (!p.getItemInHand(hand).is(key)) { p.displayClientMessage(Component.literal("需要："+new net.minecraft.world.item.ItemStack(key).getHoverName().getString()+"；准备好装备后右键召唤守卫。"),true); return InteractionResult.CONSUME; }
         if (l.getDifficulty()==Difficulty.PEACEFUL) { p.displayClientMessage(Component.literal("和平难度无法召唤守卫，钥匙未消耗。"),true); return InteractionResult.CONSUME; }
         if (!l.getEntitiesOfClass(ProtocolMob.class,new net.minecraft.world.phys.AABB(pos).inflate(64),m -> m.isBoss() && m.isAlive()).isEmpty()) { p.displayClientMessage(Component.literal("附近已有守卫，先完成当前挑战。"),true); return InteractionResult.CONSUME; }
-        var mob=ExpansionContent.MOBS.get(ExpansionContent.ENEMIES[tier+4]).get().create(l);
+        var mob=ExpansionContent.MOBS.get(ExpansionContent.ENEMIES[ExpansionContent.BOSS_VARIANTS[tier]]).get().create(l);
         BlockPos spawn=null;
         for (int[] offset : new int[][]{{3,0},{-3,0},{0,3},{0,-3}}) {
             var candidate=pos.offset(offset[0],0,offset[1]);
