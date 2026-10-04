@@ -1,0 +1,32 @@
+{
+  "parent": "ashenprotocol:expedition/ash_ingot",
+  "display": {
+    "icon": {
+      "item": "ashenprotocol:archive_compass"
+    },
+    "title": {
+      "text": "追踪档案"
+    },
+    "description": {
+      "text": "获得遗迹定位器"
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "obtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ashenprotocol:archive_compass"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 40
+  }
+}

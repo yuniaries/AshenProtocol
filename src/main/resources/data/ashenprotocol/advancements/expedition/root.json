@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "ashenprotocol:archive_compass"
+    },
+    "title": {
+      "text": "失落坐标"
+    },
+    "description": {
+      "text": "加工矿石、追踪遗迹，重建自己的协议网络"
+    },
+    "background": "minecraft:textures/block/deepslate.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "start": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ashenprotocol:raw_ash"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

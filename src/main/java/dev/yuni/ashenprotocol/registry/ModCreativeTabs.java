@@ -23,6 +23,7 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.PROTOCOL_RELAY_ITEM.get());
                 output.accept(ModItems.PHASE_PISTOL.get());
                 output.accept(ModItems.ENTROPY_SINK.get());
+                dev.yuni.ashenprotocol.expansion.ExpansionContent.ITEMS.values().forEach(item -> output.accept(item.get()));
             }).build());
     }
     public static void register(IEventBus bus) { TABS.register(bus); }

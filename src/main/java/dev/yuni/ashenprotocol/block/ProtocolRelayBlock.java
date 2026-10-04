@@ -82,6 +82,10 @@ public final class ProtocolRelayBlock extends BaseEntityBlock {
             if (blockEntity
                     instanceof ProtocolRelayBlockEntity relay) {
 
+                if (relay.getCharge() > 3800) {
+                    player.displayClientMessage(net.minecraft.network.chat.Component.literal("中继能量已满，未扣除材料。"), true);
+                    return InteractionResult.CONSUME;
+                }
                 relay.addCharge(200);
 
                 if (!player.isCreative()) {

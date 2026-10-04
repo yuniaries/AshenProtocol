@@ -1,6 +1,25 @@
 {
   "replace": false,
   "values": [
+    "ashenprotocol:void_ore",
+    "ashenprotocol:archive_bricks",
+    "ashenprotocol:ash_press",
+    "ashenprotocol:atlas_shrine",
+    "ashenprotocol:rift_shrine",
+    "ashenprotocol:memory_ore",
+    "ashenprotocol:rift_ore",
+    "ashenprotocol:ash_ore",
+    "ashenprotocol:restoration_array",
+    "ashenprotocol:signal_glass",
+    "ashenprotocol:signal_ore",
+    "ashenprotocol:rift_tiles",
+    "ashenprotocol:echo_loom",
+    "ashenprotocol:cinder_shrine",
+    "ashenprotocol:tide_shrine",
+    "ashenprotocol:world_anchor",
+    "ashenprotocol:ash_tiles",
+    "ashenprotocol:alloy_forge",
+    "ashenprotocol:crystal_refinery",
     "ashenprotocol:protocol_relay"
   ]
 }

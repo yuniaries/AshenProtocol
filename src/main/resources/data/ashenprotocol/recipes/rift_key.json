@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LAL",
+    "ACA",
+    "LAL"
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:tempered_alloy"
+    },
+    "C": {
+      "item": "ashenprotocol:tide_core"
+    },
+    "L": {
+      "item": "ashenprotocol:frost_lens"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:rift_key",
+    "count": 1
+  }
+}

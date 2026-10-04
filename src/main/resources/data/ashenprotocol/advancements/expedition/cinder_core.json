@@ -1,0 +1,32 @@
+{
+  "parent": "ashenprotocol:expedition/archive_compass",
+  "display": {
+    "icon": {
+      "item": "ashenprotocol:cinder_core"
+    },
+    "title": {
+      "text": "余烬的回应"
+    },
+    "description": {
+      "text": "获得余烬核心"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "obtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ashenprotocol:cinder_core"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 40
+  }
+}

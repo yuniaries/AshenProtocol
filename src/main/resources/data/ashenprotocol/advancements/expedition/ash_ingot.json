@@ -1,0 +1,32 @@
+{
+  "parent": "ashenprotocol:expedition/root",
+  "display": {
+    "icon": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "title": {
+      "text": "压制余灰"
+    },
+    "description": {
+      "text": "获得灰烬锭"
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "obtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ashenprotocol:ash_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 40
+  }
+}

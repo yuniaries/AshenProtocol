@@ -40,6 +40,7 @@ public final class RuntimeProbe {
         var server = event.getServer();
         server.execute(() -> {
             try {
+                ExpansionProbe.run(server);
                 var level = server.overworld();
                 var data = ProtocolSavedData.get(server);
                 for (String recipe : new String[]{"protocol_fragment","entropy_crystal","entropy_meter","protocol_relay","phase_pistol","field_guide","entropy_sink","echo_recycling"}) {

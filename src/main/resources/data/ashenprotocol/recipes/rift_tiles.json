@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:rift_dust"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:rift_tiles",
+    "count": 8
+  }
+}

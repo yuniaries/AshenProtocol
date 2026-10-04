@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:woven_echo"
+    },
+    {
+      "item": "ashenprotocol:entropy_crystal"
+    },
+    {
+      "item": "ashenprotocol:tempered_alloy"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:restoration_cell",
+    "count": 2
+  }
+}

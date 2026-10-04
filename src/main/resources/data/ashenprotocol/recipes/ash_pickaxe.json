@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "G": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "I": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:ash_pickaxe",
+    "count": 1
+  }
+}

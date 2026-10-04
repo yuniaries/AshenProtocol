@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CIF",
+    " II",
+    " I "
+  ],
+  "key": {
+    "C": {
+      "item": "ashenprotocol:cinder_core"
+    },
+    "I": {
+      "item": "ashenprotocol:signal_ingot"
+    },
+    "F": {
+      "item": "ashenprotocol:protocol_fragment"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:resonance_carbine",
+    "count": 1
+  }
+}

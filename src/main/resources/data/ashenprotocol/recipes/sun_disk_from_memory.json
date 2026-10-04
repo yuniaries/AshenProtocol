@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:memory_shard"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "ashenprotocol:archive_chip"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:sun_disk",
+    "count": 2
+  }
+}

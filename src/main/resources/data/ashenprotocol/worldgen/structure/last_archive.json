@@ -1,0 +1,8 @@
+{
+  "type": "ashenprotocol:island_archive",
+  "biomes": "#ashenprotocol:has_last_archive",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "ashenprotocol:last_archive"
+}

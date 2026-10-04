@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "G": {
+      "item": "ashenprotocol:tide_core"
+    },
+    "I": {
+      "item": "ashenprotocol:rift_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:rift_pickaxe",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "G I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:signal_ingot"
+    },
+    "G": {
+      "item": "ashenprotocol:cinder_core"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:tide_boots",
+    "count": 1
+  }
+}

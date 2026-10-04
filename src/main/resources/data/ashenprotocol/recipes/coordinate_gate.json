@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ASA",
+    "FCF",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:signal_ingot"
+    },
+    "S": {
+      "item": "ashenprotocol:cinder_core"
+    },
+    "F": {
+      "item": "ashenprotocol:archive_chip"
+    },
+    "C": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:coordinate_gate",
+    "count": 1
+  }
+}

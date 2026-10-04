@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CIF",
+    " II",
+    " I "
+  ],
+  "key": {
+    "C": {
+      "item": "ashenprotocol:atlas_core"
+    },
+    "I": {
+      "item": "ashenprotocol:rift_ingot"
+    },
+    "F": {
+      "item": "ashenprotocol:woven_echo"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:atlas_caster",
+    "count": 1
+  }
+}

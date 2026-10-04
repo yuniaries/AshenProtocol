@@ -1,0 +1,32 @@
+{
+  "parent": "ashenprotocol:expedition/cinder_core",
+  "display": {
+    "icon": {
+      "item": "ashenprotocol:tide_core"
+    },
+    "title": {
+      "text": "潮汐的回应"
+    },
+    "description": {
+      "text": "获得潮汐核心"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "obtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ashenprotocol:tide_core"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 40
+  }
+}

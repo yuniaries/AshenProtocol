@@ -1,0 +1,32 @@
+{
+  "parent": "ashenprotocol:expedition/tide_core",
+  "display": {
+    "icon": {
+      "item": "ashenprotocol:rift_core"
+    },
+    "title": {
+      "text": "裂隙的回应"
+    },
+    "description": {
+      "text": "获得裂隙核心"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "obtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ashenprotocol:rift_core"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 40
+  }
+}

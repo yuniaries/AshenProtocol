@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CIF",
+    " II",
+    " I "
+  ],
+  "key": {
+    "C": {
+      "item": "ashenprotocol:tide_core"
+    },
+    "I": {
+      "item": "ashenprotocol:rift_ingot"
+    },
+    "F": {
+      "item": "ashenprotocol:protocol_fragment"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:rift_lance",
+    "count": 1
+  }
+}

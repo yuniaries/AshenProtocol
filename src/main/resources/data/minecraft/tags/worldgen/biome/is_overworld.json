@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "ashenprotocol:ash_steppe",
+    "ashenprotocol:signal_grove",
+    "ashenprotocol:tide_mire",
+    "ashenprotocol:frost_expanse",
+    "ashenprotocol:sun_scar",
+    "ashenprotocol:rift_highlands"
+  ]
+}

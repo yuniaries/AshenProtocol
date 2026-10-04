@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "ashenprotocol:protocol_relay"
+    "ashenprotocol:ash_ore",
+    "ashenprotocol:signal_ore",
+    "ashenprotocol:memory_ore"
   ]
 }

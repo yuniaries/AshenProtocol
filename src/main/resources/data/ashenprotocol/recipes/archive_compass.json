@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "FCF",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "F": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "C": {
+      "item": "minecraft:compass"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:archive_compass",
+    "count": 1
+  }
+}

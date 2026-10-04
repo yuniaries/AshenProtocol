@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:signal_ingot"
+    },
+    "G": {
+      "item": "ashenprotocol:cinder_core"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:tide_helmet",
+    "count": 1
+  }
+}

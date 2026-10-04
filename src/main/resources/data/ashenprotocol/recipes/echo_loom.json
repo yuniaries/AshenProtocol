@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ASA",
+    "FCF",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "F": {
+      "item": "ashenprotocol:protocol_fragment"
+    },
+    "C": {
+      "item": "ashenprotocol:echo_residue"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:echo_loom",
+    "count": 1
+  }
+}

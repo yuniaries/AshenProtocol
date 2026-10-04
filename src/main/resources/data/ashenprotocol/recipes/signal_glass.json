@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:signal_shard"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:signal_glass",
+    "count": 8
+  }
+}

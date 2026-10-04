@@ -7,18 +7,13 @@
         "items": [
           {
             "items": [
-              "ashenprotocol:entropy_crystal"
+              "minecraft:iron_ingot"
             ]
           }
         ]
       }
     }
   },
-  "requirements": [
-    [
-      "ingredient"
-    ]
-  ],
   "rewards": {
     "recipes": [
       "ashenprotocol:entropy_sink"

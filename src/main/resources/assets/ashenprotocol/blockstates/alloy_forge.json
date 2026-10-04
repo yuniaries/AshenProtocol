@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ashenprotocol:block/alloy_forge"
+    }
+  }
+}

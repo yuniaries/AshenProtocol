@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "ashenprotocol:ash_ingot"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:archive_bricks",
+    "count": 8
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    {
+      "item": "ashenprotocol:signal_ingot"
+    },
+    {
+      "item": "ashenprotocol:memory_shard"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:tempered_alloy",
+    "count": 2
+  }
+}

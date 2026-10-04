@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "ashenprotocol:signal_shard"
+    },
+    {
+      "item": "ashenprotocol:protocol_fragment"
+    }
+  ],
+  "result": {
+    "item": "ashenprotocol:archive_chip",
+    "count": 2
+  }
+}

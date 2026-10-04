@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "G I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "G": {
+      "item": "ashenprotocol:ash_ingot"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:ash_boots",
+    "count": 1
+  }
+}

@@ -8,9 +8,9 @@
 
 ## 玩法
 
-从普通生存寻找紫水晶和红石开始，走完八章进度：协议碎片、熵表、中继网络、相位手枪、死亡回声、熵晶体、主动净化、世界重建。每章完成后自动记录并只奖励一次经验；任务保存在玩家死亡后保留的数据中。
+从普通生存寻找紫水晶和红石开始，完成基础八章进度：协议碎片、熵表、中继网络、相位手枪、死亡回声、熵晶体、主动净化、世界重建。每章完成后自动记录并只奖励一次经验；任务保存在玩家死亡后保留的数据中。
 
-进入世界获得野外手册；右键手册或按 **J** 打开自研协议终端，查看配方说明、任务和服务器同步的世界状态。手持熵表时显示 HUD。主菜单、任务界面、像素纹理与玩法系统均由本项目实现。
+进入世界获得野外手册；右键手册或按 **J** 打开自研协议终端，查看24项目标、配方说明和服务器同步的世界状态。手持熵表时显示 HUD。主菜单、任务界面、像素纹理与玩法系统均由本项目实现。
 
 - **相位手枪**：32 格射程，8 点伤害；每枪消耗一枚碎片、1 耐久，增加 2 点熵债；墙壁阻挡射线，冷却 8 tick。
 - **协议中继**：碎片右键充能，每枚维持 200 秒；接通红石信号后每 5 秒完整度 +1、熵债 -1。只在加载的区块中运行，可并联多个中继。
@@ -21,19 +21,27 @@
 
 ![世界内任务终端](docs/images/journal-world.png)
 
+![原创敌人与装备](docs/images/expansion-enemies.png)
+
 ## 自主开发与依赖
 
 这个版本不继承落幕曲的 MOD 清单、任务、菜单、枪包、资源、素材、存档或作者链接。早期 0.1.x 衍生试验包不属于此仓库，也不能与当前版本混装。
 
 附带的第三方PCL不适用本项目MIT许可，原许可和来源说明位于 `distribution/PCL/`。核心实现根据用户提供的《灰烬协议 Standalone》设计文档开发和重构。仅依赖 Minecraft 与 Forge；第三方辅助 MOD 可以另行评估添加，但不承担本项目的核心玩法。不能把基础框架和 Minecraft 原版代码声明为自己的作品，详细来源见 [docs/PROVENANCE.md](docs/PROVENANCE.md)。
 
-当前 0.2.0 是完整的核心玩法版本，未复刻旧整合包中第三方 MOD 的庞大内容。包的体积取决于实际自研内容，没有人为填充。
+当前 **0.3.0 · 失落坐标** 增加72个物品条目（包含方块、装备和刷怪蛋）、五种矿石、六台机器、六处自然遗迹、三套护甲、四种普通敌人、四个阶段首领、四阶钥匙和一个包含六类区域的失序领域。完整路线与全部配方见[游玩指南](docs/PLAY_GUIDE.md)。
+
+探索与制造循环：原灰矿→机器压制→灰烬装备→余烬守卫→潮汐档案→两极材料→下界裂隙→末地坐标→复苏阵列。旧存档需要探索新地形，推荐新建生存世界。机器断电/满仓暂停，输入输出会保存，拆除掉落材料。坐标门在主世界和失序领域之间往返。
+
+这是实际可玩的原创扩展，还不能把一个自研MOD称为等同于数百个成熟MOD多年积累的内容。包的体积取决于实际内容，不人为填充。
 
 ## 构建与验证
 
 ```bash
 # Linux/macOS；Windows 使用 gradlew.bat
 python3 tools/generate_assets.py
+python3 tools/generate_expansion.py
+python3 tools/generate_guide.py
 ./gradlew build
 python3 tools/package.py
 ```
@@ -47,7 +55,7 @@ python3 tools/package.py
 # 仅用于专门的临时测试服务器，切勿放进生产存档
 # 把生成 JAR 放入安装好的 Forge 47.3.22 测试服务器 mods 目录
 # 在该服务器目录运行（已接受 Minecraft EULA）
-java -Xmx2G -Dashenprotocol.runtimeProbe=true @libraries/net/minecraftforge/forge/1.20.1-47.3.22/unix_args.txt --nogui
+java -Xmx4G -Dashenprotocol.runtimeProbe=true @libraries/net/minecraftforge/forge/1.20.1-47.3.22/unix_args.txt --nogui
 # 完成后重新构建发布 JAR，移除探针代码
 ./gradlew clean build
 python3 tools/package.py

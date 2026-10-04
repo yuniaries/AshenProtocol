@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "ACA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:ash_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:protocol_fragment"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:cinder_key",
+    "count": 1
+  }
+}

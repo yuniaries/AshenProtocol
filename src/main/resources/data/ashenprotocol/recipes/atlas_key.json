@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LAL",
+    "ACA",
+    "LAL"
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:rift_ingot"
+    },
+    "C": {
+      "item": "ashenprotocol:rift_core"
+    },
+    "L": {
+      "item": "ashenprotocol:sun_disk"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:atlas_key",
+    "count": 1
+  }
+}

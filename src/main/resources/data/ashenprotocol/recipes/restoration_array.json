@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ASA",
+    "FCF",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:tempered_alloy"
+    },
+    "S": {
+      "item": "ashenprotocol:tide_core"
+    },
+    "F": {
+      "item": "ashenprotocol:woven_echo"
+    },
+    "C": {
+      "item": "ashenprotocol:entropy_crystal"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:restoration_array",
+    "count": 1
+  }
+}

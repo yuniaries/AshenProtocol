@@ -21,6 +21,7 @@ public final class AshenProtocol {
                 .getModEventBus();
 
         dev.yuni.ashenprotocol.registry.ModCreativeTabs.register(modBus);
+        dev.yuni.ashenprotocol.expansion.ExpansionContent.register(modBus);
         ModItems.register(modBus);
         ModBlocks.register(modBus);
         ModBlockEntities.register(modBus);

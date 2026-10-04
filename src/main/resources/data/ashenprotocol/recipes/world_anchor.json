@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ASA",
+    "FCF",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "ashenprotocol:rift_ingot"
+    },
+    "S": {
+      "item": "ashenprotocol:rift_core"
+    },
+    "F": {
+      "item": "ashenprotocol:restoration_cell"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:world_anchor",
+    "count": 1
+  }
+}

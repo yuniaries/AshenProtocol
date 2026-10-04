@@ -1,0 +1,15 @@
+{
+  "name": "ashenprotocol:ash_outpost",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "ashenprotocol:ash_outpost",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

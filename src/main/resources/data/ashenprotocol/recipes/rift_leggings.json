@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "ashenprotocol:rift_ingot"
+    },
+    "G": {
+      "item": "ashenprotocol:tide_core"
+    }
+  },
+  "result": {
+    "item": "ashenprotocol:rift_leggings",
+    "count": 1
+  }
+}
