@@ -23,7 +23,7 @@ public final class GuideEvents {
         if (!player.getInventory().add(guide)) player.drop(guide, false);
         data.putBoolean("AshenGuideReceived", true);
         persistent.put(Player.PERSISTED_NBT_TAG, data);
-        player.sendSystemMessage(Component.literal("灰烬协议已接入。右键野外手册，从协议碎片开始探索。"));
+        player.sendSystemMessage(Component.literal("欢迎进入灰烬协议。按 J 或右键任务书查看章节；右下角会指引当前目标，从紫水晶与红石制作协议碎片开始。"));
     }
 }
 

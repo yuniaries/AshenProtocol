@@ -15,6 +15,12 @@ public final class CampaignProbe {
  static void check(boolean b,String detail){RuntimeProbe.check(b,"campaign: "+detail);}
  public static void run(net.minecraft.server.MinecraftServer server){
   var l=server.overworld();var p=FakePlayerFactory.get(l,new GameProfile(UUID.fromString("00000000-1234-1234-1234-123456781234"),"CampaignProbe"));p.setPos(5,231,5);p.getInventory().clearContent();
+  check(dev.yuni.ashenprotocol.progress.QuestCatalog.recommend(i->false)==0,"new-player recommendation starts with fragments");
+  for(int id=0;id<96;id++)for(int before:dev.yuni.ashenprotocol.progress.QuestCatalog.PREREQUISITES[id])check(before>=0&&before<96&&before!=id,"valid guidance dependency "+id+" -> "+before);
+  check(!dev.yuni.ashenprotocol.progress.QuestTracking.select(p,96)&&!dev.yuni.ashenprotocol.progress.QuestTracking.select(p,-3),"invalid tracking IDs rejected");
+  check(dev.yuni.ashenprotocol.progress.QuestTracking.select(p,80)&&dev.yuni.ashenprotocol.progress.QuestTracking.selected(p)==80,"selected quest stored for player");
+  check(p.getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG).getInt("AshenTrackedQuest")==80,"tracking persists in death-preserved NBT");
+  dev.yuni.ashenprotocol.progress.QuestTracking.select(p,-1);check(dev.yuni.ashenprotocol.progress.QuestTracking.selected(p)==-1,"disabled tracking respected");
   for(String name:CampaignContent.CROPS){
    var crop=(CropBlock)ExpansionContent.BLOCKS.get(name+"_crop").get();var pos=new BlockPos(7,231,7);l.setBlockAndUpdate(pos.below(),Blocks.FARMLAND.defaultBlockState());l.setBlockAndUpdate(pos,crop.getStateForAge(0));
    check(!crop.isMaxAge(l.getBlockState(pos)),name+" begins immature");
@@ -40,6 +46,7 @@ public final class CampaignProbe {
   var saved=be.saveWithoutMetadata();var restored=new WorkshopEntity(at,state);restored.load(saved);check(restored.secondary().getCount()==2&&restored.input().getCount()==1,"auxiliary inventory survives save/load");
   ItemStack exposed=top.getStackInSlot(0);exposed.setCount(60);check(be.input().getCount()==1,"handler stack views cannot mutate inventory");
   // Verify the actual vanilla hopper tick takes the Forge capability path.
+  l.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new AABB(at.above()).inflate(3)).forEach(net.minecraft.world.entity.Entity::discard);
   var hopperState=Blocks.HOPPER.defaultBlockState();l.setBlockAndUpdate(at.above(),hopperState);
   var upper=(net.minecraft.world.level.block.entity.HopperBlockEntity)l.getBlockEntity(at.above());upper.setItem(0,new ItemStack(ExpansionContent.item("signal_ingot"),4));
   net.minecraft.world.level.block.entity.HopperBlockEntity.pushItemsTick(l,at.above(),hopperState,upper);

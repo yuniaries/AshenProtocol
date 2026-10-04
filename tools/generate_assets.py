@@ -21,7 +21,14 @@ def png(name,block=False):
     if 3<=x<=12 and 2<=y<=13:v=metal
     if 4<=x<=11 and 3<=y<=12:v=dark
     if x in (7,8) and 5<=y<=10:v=c
-    if name=='field_guide' and y in (12,13) and 4<=x<=12:v=(204,226,220)
+    if name=='field_guide':
+     v=None
+     if 2<=x<=12 and 2<=y<=13:v=(100,70,49)
+     if 4<=x<=12 and 3<=y<=11:v=(30,63,67)
+     if x==3 and 3<=y<=12:v=(174,117,62)
+     if 4<=x<=12 and y in (12,13):v=(230,220,185)
+     if (x in (7,10) and 5<=y<=9) or (y in (5,9) and 7<=x<=10):v=c
+     if x==11 and y==14:v=(199,109,71)
     if name=='entropy_sink' and (x in (5,10) or y in (4,11)) and 4<=x<=11 and 3<=y<=12:v=c
    row.extend((*v,255) if v else (0,0,0,0))
   pixels.append(b'\0'+bytes(row))
@@ -40,5 +47,8 @@ for name,data in recipes.items():
  item='entropy_crystal' if name=='entropy_sink' else 'echo_residue'
  save(f'data/ashenprotocol/advancements/recipes/{name}.json',{'parent':'minecraft:recipes/root','criteria':{'ingredient':{'trigger':'minecraft:inventory_changed','conditions':{'items':[{'items':[f'ashenprotocol:{item}']}]}}},'requirements':[['ingredient']],'rewards':{'recipes':[f'ashenprotocol:{name}']}})
 for lang in ['zh_cn','en_us']:
- path=f'assets/ashenprotocol/lang/{lang}.json';d=json.loads((r/path).read_text());d.update({'item.ashenprotocol.entropy_sink':'熵债净化器' if lang=='zh_cn' else 'Entropy Sink','key.ashenprotocol.journal':'打开协议终端' if lang=='zh_cn' else 'Open Protocol Terminal','key.categories.ashenprotocol':'灰烬协议' if lang=='zh_cn' else 'Ashen Protocol'});save(path,d)
+ path=f'assets/ashenprotocol/lang/{lang}.json';d=json.loads((r/path).read_text());d.update({'item.ashenprotocol.entropy_sink':'熵债净化器' if lang=='zh_cn' else 'Entropy Sink','key.ashenprotocol.journal':'打开协议任务书' if lang=='zh_cn' else 'Open Quest Book','key.categories.ashenprotocol':'灰烬协议' if lang=='zh_cn' else 'Ashen Protocol'});save(path,d)
 print('Generated 11 original textures, 2 recipes and recipe unlocks')
+
+for lang in ['zh_cn','en_us']:
+ path=f'assets/ashenprotocol/lang/{lang}.json';d=json.loads((r/path).read_text());d['item.ashenprotocol.field_guide']='协议任务书' if lang=='zh_cn' else 'Protocol Quest Book';save(path,d)

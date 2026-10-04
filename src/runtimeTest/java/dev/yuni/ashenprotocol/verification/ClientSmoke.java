@@ -46,6 +46,7 @@ public final class ClientSmoke {
             mc.player.getInventory().selected = 0;
         }
         if (ticks == 60) Screenshot.grab(mc.gameDirectory, "native-hud.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_HUD: " + c.getString()));
+        if(ticks==75){mc.player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(ModItems.FIELD_GUIDE.get()));ModItems.FIELD_GUIDE.get().use(mc.level,mc.player,net.minecraft.world.InteractionHand.MAIN_HAND);if(!(mc.screen instanceof ProtocolJournalScreen book)||!book.isOverview())throw new IllegalStateException("physical quest book did not open overview");System.out.println("AP_QUEST_BOOK_ITEM_PASS");mc.setScreen(null);}
         if (ticks == 80) {
             if ((ClientState.milestones & 3) != 3) throw new IllegalStateException("client did not receive fragment/meter progress");
             if (dev.yuni.ashenprotocol.client.ClientEvents.JOURNAL.getKey().getValue() != org.lwjgl.glfw.GLFW.GLFW_KEY_J)
@@ -56,19 +57,22 @@ public final class ClientSmoke {
         }
         if (ticks == 90 && !(mc.screen instanceof ProtocolJournalScreen))
             throw new IllegalStateException("J key did not open native journal");
+        if(ticks==95){var widgets=mc.screen.children().stream().filter(c->c instanceof net.minecraft.client.gui.components.AbstractWidget).map(c->(net.minecraft.client.gui.components.AbstractWidget)c).toList();for(int i=0;i<widgets.size();i++)for(int j=i+1;j<widgets.size();j++){var a=widgets.get(i);var b=widgets.get(j);if(a.getX()<b.getX()+b.getWidth()&&a.getX()+a.getWidth()>b.getX()&&a.getY()<b.getY()+b.getHeight()&&a.getY()+a.getHeight()>b.getY())throw new IllegalStateException("quest chapter cards overlap navigation");}System.out.println("AP_QUEST_OVERVIEW_LAYOUT_PASS");}
         if (ticks == 100) {
-            Screenshot.grab(mc.gameDirectory, "native-journal.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_JOURNAL: " + c.getString()));
+            Screenshot.grab(mc.gameDirectory, "quest-book-overview.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_JOURNAL: " + c.getString()));
             System.out.println("AP_CLIENT_SMOKE_SUCCESS: network state, real inventory, HUD and J-key journal rendered without social key conflict; milestones=" + ClientState.milestones);
         }
         if(ticks==110&&!ClientState.completed(75))throw new IllegalStateException("late milestone not synchronized");
+        if(ticks==105){var book=(ProtocolJournalScreen)mc.screen;if(!book.isOverview())throw new IllegalStateException("book did not open chapter overview");book.selectQuest(80);for(var child:book.children())if(child instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().equals("追踪此任务")){b.onPress();break;}}
+        if(ticks==115){if(ClientState.tracked!=80||ClientState.progress[80]!=0)throw new IllegalStateException("quest tracking packet or counter sync failed");System.out.println("AP_QUEST_TRACK_PASS: persisted selection and zero production counter synchronized");}
         if (ticks == 120) mc.getWindow().setWindowed(2560,1440);
         if (ticks == 130) {
-            for(var child:mc.screen.children()) if(child instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().equals("下一组")) { b.onPress();break; }
+            for(var child:mc.screen.children()) if(child instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().equals("下一章")) { b.onPress();break; }
         }
         if (ticks == 140) {
-            for(var child:mc.screen.children()) if(child instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().equals("下一组")) { b.onPress();break; }
+            for(var child:mc.screen.children()) if(child instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().equals("下一章")) { b.onPress();break; }
 
-            for (var listener : mc.screen.children()) if (listener instanceof net.minecraft.client.gui.components.Button b && b.getMessage().getString().startsWith("24")) b.onPress();
+            ((ProtocolJournalScreen)mc.screen).selectQuest(95);
         }
         if (ticks == 160 || ticks == 200) {
             for (var listener : mc.screen.children()) if (listener instanceof net.minecraft.client.gui.components.AbstractWidget b) {
@@ -78,6 +82,8 @@ public final class ClientSmoke {
             Screenshot.grab(mc.gameDirectory, ticks==160 ? "native-journal-large-auto.png" : "native-journal-large-scale2.png", mc.getMainRenderTarget(), c -> System.out.println("AP_CLIENT_LAYOUT: " + c.getString()));
             System.out.println("AP_CLIENT_LAYOUT_PASS: " + mc.getWindow().getScreenWidth() + "x" + mc.getWindow().getScreenHeight() + ", GUI=" + mc.getWindow().getGuiScaledWidth() + "x" + mc.getWindow().getGuiScaledHeight());
         }
+        if(ticks==170){for(var child:mc.screen.children())if(child instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().equals("关闭追踪")){b.onPress();break;}}
+        if(ticks==195&&ClientState.tracked!=-1)throw new IllegalStateException("disable tracking did not persist");
         if (ticks == 180) { mc.options.guiScale().set(2); mc.resizeDisplay(); }
         if(ticks==210) {
             mc.setScreen(null);
@@ -114,9 +120,7 @@ public final class ClientSmoke {
             var p=mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);var gate=dev.yuni.ashenprotocol.expansion.ExpansionContent.item("deep_gate");p.getCooldowns().removeCooldown(gate);gate.use(p.level(),p,net.minecraft.world.InteractionHand.MAIN_HAND);
             if(!p.level().dimension().equals(net.minecraft.world.level.Level.OVERWORLD))throw new IllegalStateException("deep gate failed to return");System.out.println("AP_CLIENT_DEEP_RETURN_PASS");
         });}
-        if(ticks==600){mc.setScreen(new ProtocolJournalScreen(null));for(int n=0;n<11;n++)for(var child:mc.screen.children())if(child instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().equals("下一组")){b.onPress();break;}
-            for(var child:mc.screen.children())if(child instanceof net.minecraft.client.gui.components.Button b&&b.getMessage().getString().startsWith("96")){b.onPress();break;}
-        }
+        if(ticks==600){mc.setScreen(new ProtocolJournalScreen(null));((ProtocolJournalScreen)mc.screen).selectQuest(95);}
         if(ticks==620){Screenshot.grab(mc.gameDirectory,"campaign-final-journal.png",mc.getMainRenderTarget(),c->System.out.println("AP_CLIENT_FINAL_JOURNAL: "+c.getString()));System.out.println("AP_CLIENT_96_GOALS_LAYOUT_PASS");}
         if(ticks==640){mc.setScreen(null);var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->ArenaClientProbe.prepare(mc.getSingleplayerServer(),uuid));}
         if(ticks==680){var uuid=mc.player.getUUID();mc.getSingleplayerServer().execute(()->ArenaClientProbe.verify(mc.getSingleplayerServer(),uuid));}

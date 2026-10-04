@@ -1,0 +1,909 @@
+[
+  {
+    "id": 0,
+    "title": "协议接入",
+    "chapter": "接入与重建",
+    "icon": "protocol_fragment",
+    "prerequisites": []
+  },
+  {
+    "id": 1,
+    "title": "读取信号",
+    "chapter": "接入与重建",
+    "icon": "entropy_meter",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 2,
+    "title": "网络节点",
+    "chapter": "接入与重建",
+    "icon": "protocol_relay",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 3,
+    "title": "力量的代价",
+    "chapter": "接入与重建",
+    "icon": "phase_pistol",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 4,
+    "title": "因果回收",
+    "chapter": "接入与重建",
+    "icon": "echo_residue",
+    "prerequisites": []
+  },
+  {
+    "id": 5,
+    "title": "熵的结晶",
+    "chapter": "接入与重建",
+    "icon": "entropy_crystal",
+    "prerequisites": []
+  },
+  {
+    "id": 6,
+    "title": "主动净化",
+    "chapter": "接入与重建",
+    "icon": "entropy_sink",
+    "prerequisites": [
+      1,
+      5
+    ]
+  },
+  {
+    "id": 7,
+    "title": "世界重建",
+    "chapter": "接入与重建",
+    "icon": "protocol_relay",
+    "prerequisites": [
+      2,
+      6
+    ]
+  },
+  {
+    "id": 8,
+    "title": "地下余灰",
+    "chapter": "余灰与潮汐",
+    "icon": "raw_ash",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 9,
+    "title": "材料压制",
+    "chapter": "余灰与潮汐",
+    "icon": "ash_ingot",
+    "prerequisites": [
+      8
+    ]
+  },
+  {
+    "id": 10,
+    "title": "追踪遗迹",
+    "chapter": "余灰与潮汐",
+    "icon": "archive_compass",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 11,
+    "title": "灰烬武装",
+    "chapter": "余灰与潮汐",
+    "icon": "ash_chestplate",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 12,
+    "title": "余烬守卫",
+    "chapter": "余灰与潮汐",
+    "icon": "cinder_core",
+    "prerequisites": [
+      10,
+      11
+    ]
+  },
+  {
+    "id": 13,
+    "title": "信号精炼",
+    "chapter": "余灰与潮汐",
+    "icon": "signal_ingot",
+    "prerequisites": [
+      12
+    ]
+  },
+  {
+    "id": 14,
+    "title": "潮汐武装",
+    "chapter": "余灰与潮汐",
+    "icon": "tide_chestplate",
+    "prerequisites": [
+      13
+    ]
+  },
+  {
+    "id": 15,
+    "title": "织潮者",
+    "chapter": "余灰与潮汐",
+    "icon": "tide_core",
+    "prerequisites": [
+      12,
+      14
+    ]
+  },
+  {
+    "id": 16,
+    "title": "编织回声",
+    "chapter": "裂隙与终末",
+    "icon": "woven_echo",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 17,
+    "title": "两极档案",
+    "chapter": "裂隙与终末",
+    "icon": "sun_disk",
+    "prerequisites": [
+      10
+    ]
+  },
+  {
+    "id": 18,
+    "title": "裂隙锻造",
+    "chapter": "裂隙与终末",
+    "icon": "rift_ingot",
+    "prerequisites": [
+      13
+    ]
+  },
+  {
+    "id": 19,
+    "title": "失谐执政官",
+    "chapter": "裂隙与终末",
+    "icon": "rift_core",
+    "prerequisites": [
+      15,
+      17,
+      18
+    ]
+  },
+  {
+    "id": 20,
+    "title": "区域复苏",
+    "chapter": "裂隙与终末",
+    "icon": "restoration_array",
+    "prerequisites": [
+      16,
+      19
+    ]
+  },
+  {
+    "id": 21,
+    "title": "终末坐标",
+    "chapter": "裂隙与终末",
+    "icon": "void_shard",
+    "prerequisites": [
+      19
+    ]
+  },
+  {
+    "id": 22,
+    "title": "最后的测绘者",
+    "chapter": "裂隙与终末",
+    "icon": "atlas_core",
+    "prerequisites": [
+      21
+    ]
+  },
+  {
+    "id": 23,
+    "title": "复苏新纪元",
+    "chapter": "裂隙与终末",
+    "icon": "world_anchor",
+    "prerequisites": [
+      20,
+      22
+    ]
+  },
+  {
+    "id": 24,
+    "title": "耕地与余灰",
+    "chapter": "农田与种源",
+    "icon": "ash_wheat",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 25,
+    "title": "信号浆果",
+    "chapter": "农田与种源",
+    "icon": "signal_berry",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 26,
+    "title": "潮汐水田",
+    "chapter": "农田与种源",
+    "icon": "tide_rice",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 27,
+    "title": "霜根储备",
+    "chapter": "农田与种源",
+    "icon": "frost_root",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 28,
+    "title": "日椒温室",
+    "chapter": "农田与种源",
+    "icon": "sun_pepper",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 29,
+    "title": "回声豆田",
+    "chapter": "农田与种源",
+    "icon": "echo_bean",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 30,
+    "title": "裂瓜培育",
+    "chapter": "农田与种源",
+    "icon": "rift_melon",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 31,
+    "title": "记忆药圃",
+    "chapter": "农田与种源",
+    "icon": "memory_herb",
+    "prerequisites": [
+      0
+    ]
+  },
+  {
+    "id": 32,
+    "title": "远征口粮",
+    "chapter": "补给与钢铁",
+    "icon": "expedition_meal",
+    "prerequisites": [
+      24,
+      26,
+      28
+    ]
+  },
+  {
+    "id": 33,
+    "title": "现场救护",
+    "chapter": "补给与钢铁",
+    "icon": "field_bandage",
+    "prerequisites": [
+      31
+    ]
+  },
+  {
+    "id": 34,
+    "title": "毒性净化",
+    "chapter": "补给与钢铁",
+    "icon": "purity_capsule",
+    "prerequisites": [
+      41
+    ]
+  },
+  {
+    "id": 35,
+    "title": "碳化生产",
+    "chapter": "补给与钢铁",
+    "icon": "carbon_dust",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 36,
+    "title": "拉丝生产",
+    "chapter": "补给与钢铁",
+    "icon": "copper_wire",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 37,
+    "title": "钢铁路线",
+    "chapter": "补给与钢铁",
+    "icon": "steel_ingot",
+    "prerequisites": [
+      35,
+      36
+    ]
+  },
+  {
+    "id": 38,
+    "title": "信号电路",
+    "chapter": "补给与钢铁",
+    "icon": "signal_circuit",
+    "prerequisites": [
+      37,
+      13
+    ]
+  },
+  {
+    "id": 39,
+    "title": "堆肥循环",
+    "chapter": "补给与钢铁",
+    "icon": "fertile_compost",
+    "prerequisites": [
+      24
+    ]
+  },
+  {
+    "id": 40,
+    "title": "生物燃料",
+    "chapter": "生物与精密",
+    "icon": "bio_fuel",
+    "prerequisites": [
+      39,
+      29
+    ]
+  },
+  {
+    "id": 41,
+    "title": "提取药剂",
+    "chapter": "生物与精密",
+    "icon": "healing_extract",
+    "prerequisites": [
+      25,
+      31
+    ]
+  },
+  {
+    "id": 42,
+    "title": "回声纺织",
+    "chapter": "生物与精密",
+    "icon": "echo_fiber",
+    "prerequisites": [
+      16,
+      29
+    ]
+  },
+  {
+    "id": 43,
+    "title": "晶格框架",
+    "chapter": "生物与精密",
+    "icon": "lattice_frame",
+    "prerequisites": [
+      37
+    ]
+  },
+  {
+    "id": 44,
+    "title": "钢铁护甲",
+    "chapter": "生物与精密",
+    "icon": "steel_chestplate",
+    "prerequisites": [
+      38
+    ]
+  },
+  {
+    "id": 45,
+    "title": "装配转子",
+    "chapter": "生物与精密",
+    "icon": "rotor",
+    "prerequisites": [
+      37,
+      36
+    ]
+  },
+  {
+    "id": 46,
+    "title": "精密齿轮",
+    "chapter": "生物与精密",
+    "icon": "precision_gear",
+    "prerequisites": [
+      37,
+      36
+    ]
+  },
+  {
+    "id": 47,
+    "title": "水流过滤",
+    "chapter": "生物与精密",
+    "icon": "water_filter",
+    "prerequisites": [
+      45
+    ]
+  },
+  {
+    "id": 48,
+    "title": "密封档案",
+    "chapter": "档案与深层门",
+    "icon": "sealed_archive",
+    "prerequisites": [
+      13
+    ]
+  },
+  {
+    "id": 49,
+    "title": "记忆矩阵",
+    "chapter": "档案与深层门",
+    "icon": "memory_matrix",
+    "prerequisites": [
+      13,
+      5
+    ]
+  },
+  {
+    "id": 50,
+    "title": "契约终端",
+    "chapter": "档案与深层门",
+    "icon": "contract_terminal",
+    "prerequisites": [
+      38
+    ]
+  },
+  {
+    "id": 51,
+    "title": "完成委托",
+    "chapter": "档案与深层门",
+    "icon": "field_guide",
+    "prerequisites": [
+      50
+    ]
+  },
+  {
+    "id": 52,
+    "title": "远征信标",
+    "chapter": "档案与深层门",
+    "icon": "expedition_beacon",
+    "prerequisites": [
+      19,
+      38
+    ]
+  },
+  {
+    "id": 53,
+    "title": "相位线圈",
+    "chapter": "档案与深层门",
+    "icon": "phase_coil",
+    "prerequisites": [
+      18,
+      42
+    ]
+  },
+  {
+    "id": 54,
+    "title": "导航阵列",
+    "chapter": "档案与深层门",
+    "icon": "navigation_array",
+    "prerequisites": [
+      22,
+      43,
+      53
+    ]
+  },
+  {
+    "id": 55,
+    "title": "深层入口",
+    "chapter": "档案与深层门",
+    "icon": "deep_gate",
+    "prerequisites": [
+      49,
+      54
+    ]
+  },
+  {
+    "id": 56,
+    "title": "深矿采集",
+    "chapter": "深渊探索",
+    "icon": "deep_ore_fragment",
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "id": 57,
+    "title": "深层冶炼",
+    "chapter": "深渊探索",
+    "icon": "deep_ingot",
+    "prerequisites": [
+      56
+    ]
+  },
+  {
+    "id": 58,
+    "title": "虚空矩阵",
+    "chapter": "深渊探索",
+    "icon": "void_matrix",
+    "prerequisites": [
+      49
+    ]
+  },
+  {
+    "id": 59,
+    "title": "深渊钥匙",
+    "chapter": "深渊探索",
+    "icon": "abyss_key",
+    "prerequisites": [
+      57,
+      49,
+      22
+    ]
+  },
+  {
+    "id": 60,
+    "title": "深渊武装",
+    "chapter": "深渊探索",
+    "icon": "echo_chestplate",
+    "prerequisites": [
+      57,
+      62
+    ]
+  },
+  {
+    "id": 61,
+    "title": "深渊咏者",
+    "chapter": "深渊探索",
+    "icon": "field_guide",
+    "prerequisites": [
+      59
+    ]
+  },
+  {
+    "id": 62,
+    "title": "深渊核心",
+    "chapter": "深渊探索",
+    "icon": "abyss_core",
+    "prerequisites": [
+      61
+    ]
+  },
+  {
+    "id": 63,
+    "title": "风暴晶屑",
+    "chapter": "深渊探索",
+    "icon": "storm_shard",
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "id": 64,
+    "title": "风暴连射",
+    "chapter": "风暴与根源",
+    "icon": "storm_repeater",
+    "prerequisites": [
+      53,
+      62,
+      63
+    ]
+  },
+  {
+    "id": 65,
+    "title": "风暴钥匙",
+    "chapter": "风暴与根源",
+    "icon": "storm_key",
+    "prerequisites": [
+      62,
+      63,
+      53
+    ]
+  },
+  {
+    "id": 66,
+    "title": "风暴君王",
+    "chapter": "风暴与根源",
+    "icon": "field_guide",
+    "prerequisites": [
+      65
+    ]
+  },
+  {
+    "id": 67,
+    "title": "风暴核心",
+    "chapter": "风暴与根源",
+    "icon": "storm_core",
+    "prerequisites": [
+      66
+    ]
+  },
+  {
+    "id": 68,
+    "title": "根系树脂",
+    "chapter": "风暴与根源",
+    "icon": "root_resin",
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "id": 69,
+    "title": "根源钥匙",
+    "chapter": "风暴与根源",
+    "icon": "root_key",
+    "prerequisites": [
+      67,
+      68,
+      41
+    ]
+  },
+  {
+    "id": 70,
+    "title": "根系营养",
+    "chapter": "风暴与根源",
+    "icon": "nutrient_gel",
+    "prerequisites": [
+      68,
+      40
+    ]
+  },
+  {
+    "id": 71,
+    "title": "根源母体",
+    "chapter": "风暴与根源",
+    "icon": "field_guide",
+    "prerequisites": [
+      69
+    ]
+  },
+  {
+    "id": 72,
+    "title": "根源核心",
+    "chapter": "曙光与复苏",
+    "icon": "root_core",
+    "prerequisites": [
+      71
+    ]
+  },
+  {
+    "id": 73,
+    "title": "曙光碎片",
+    "chapter": "曙光与复苏",
+    "icon": "dawn_fragment",
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "id": 74,
+    "title": "曙光钥匙",
+    "chapter": "曙光与复苏",
+    "icon": "dawn_key",
+    "prerequisites": [
+      72,
+      73,
+      54
+    ]
+  },
+  {
+    "id": 75,
+    "title": "曙光执政官",
+    "chapter": "曙光与复苏",
+    "icon": "field_guide",
+    "prerequisites": [
+      74
+    ]
+  },
+  {
+    "id": 76,
+    "title": "曙光核心",
+    "chapter": "曙光与复苏",
+    "icon": "dawn_core",
+    "prerequisites": [
+      75
+    ]
+  },
+  {
+    "id": 77,
+    "title": "生命圈核心",
+    "chapter": "曙光与复苏",
+    "icon": "biosphere_core",
+    "prerequisites": [
+      62,
+      67,
+      72,
+      76,
+      54
+    ]
+  },
+  {
+    "id": 78,
+    "title": "六波远征",
+    "chapter": "曙光与复苏",
+    "icon": "expedition_beacon",
+    "prerequisites": [
+      52,
+      51
+    ]
+  },
+  {
+    "id": 79,
+    "title": "完整生态复苏",
+    "chapter": "曙光与复苏",
+    "icon": "field_guide",
+    "prerequisites": [
+      75,
+      78
+    ]
+  },
+  {
+    "id": 80,
+    "title": "百次生产",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 81,
+    "title": "自动运输",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      9
+    ]
+  },
+  {
+    "id": 82,
+    "title": "农田丰收",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      24
+    ]
+  },
+  {
+    "id": 83,
+    "title": "十次委托",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      51
+    ]
+  },
+  {
+    "id": 84,
+    "title": "战地医护",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      33
+    ]
+  },
+  {
+    "id": 85,
+    "title": "相位量产",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      57,
+      58
+    ]
+  },
+  {
+    "id": 86,
+    "title": "生命圈启动",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      77
+    ]
+  },
+  {
+    "id": 87,
+    "title": "坐标锚定",
+    "chapter": "生产精通",
+    "icon": "field_guide",
+    "prerequisites": [
+      22
+    ]
+  },
+  {
+    "id": 88,
+    "title": "跨越深层",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "id": 89,
+    "title": "失序全境",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      12
+    ]
+  },
+  {
+    "id": 90,
+    "title": "深层全境",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      55
+    ]
+  },
+  {
+    "id": 91,
+    "title": "远征老兵",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      78
+    ]
+  },
+  {
+    "id": 92,
+    "title": "八阶守卫",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      75
+    ]
+  },
+  {
+    "id": 93,
+    "title": "工业基石",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      80
+    ]
+  },
+  {
+    "id": 94,
+    "title": "作物齐备",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  {
+    "id": 95,
+    "title": "无熵新世界",
+    "chapter": "远征与全境",
+    "icon": "field_guide",
+    "prerequisites": [
+      79
+    ]
+  }
+]

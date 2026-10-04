@@ -22,7 +22,7 @@ public final class ProtocolJournalScreen extends Screen {
         "建设并维护中继网络，直到完整度至少 3000、熵债低于 1000，且完成一次主动净化。高熵会带来黑暗、残影与视觉闪电。任务只奖励一次经验，死亡不重置。达成重建后仍可继续生存。",
         "灰烬矿石在主世界Y=0～72生成，铁镐以上开采。先准备床、食物、护甲，再收集原灰矿。信号矿在Y=0～40，裂隙矿在Y=-60～0且需钻石镐。新内容只在新生成地形出现。",
         "合成灰烬压制机：铁/碎片/铁，碎片/活塞/碎片，铁/铁/铁。机器接红石，用碎片右键加能量，再用原灰矿右键输入。4秒加工一枚灰烬锭。空手右键收输出，潜行空手取输入；满仓或断电暂停。",
-        "定位器配方：空/灰烬锭/空，碎片/指南针/碎片，空/灰烬锭/空。潜行右键切换六类目标，普通右键检索坐标。前四处在主世界，裂隙铸造所在下界，终末档案库在末地。旧世界需向新地形探索。",
+        "定位器配方：空/灰烬锭/空，碎片/指南针/碎片，空/灰烬锭/空。潜行右键切换18类目标，普通右键检索坐标。前四处在主世界，裂隙铸造所在下界，终末档案库在末地。旧世界需向新地形探索。",
         "灰烬锭可制作第一套护甲、灰烬刃与灰烬镐。在原版配方布局中使用灰烬锭；灰烬刃两锭一木棍。进度要求拥有灰烬胸甲。首领战之前建议携带盾牌、食物和备用装备。",
         "四枚灰烬锭围绕协议碎片做余烬钥匙，在灰烬哨站的余烬祭坛右键。余烬守卫160生命，近身火环会提前蓄力；低于半血加快技能。拉开距离避开火环，胜利获得余烬核心。每次召唤消耗一枚钥匙。用信号锭、余烬核心、档案芯片和末影珍珠还能制作坐标门，往返六区域的失序领域；仅在主世界开启，领域内再次使用返回，禁止使用床和重生锚。",
         "信号精炼机配方：灰烬锭/信号晶屑/灰烬锭，碎片/熔炉/碎片，灰烬锭/灰烬锭/灰烬锭。信号晶屑6秒加工成信号锭。每台机器独立存储输入、输出和能量，拆除会掉落材料，但能量不会保留。",
@@ -37,81 +37,75 @@ public final class ProtocolJournalScreen extends Screen {
         "最后的测绘者420生命，蓄力后造成黑暗冲击并呼叫裂隙猎手。它不会破坏你的建筑。先清理增援，利用掩体和远程武器，低于半血技能更频繁。胜利掉落坐标核心；可反复挑战但每次都消耗钥匙。",
         "获得坐标核心后，完整度至少8000且熵债低于500，达成复苏新纪元。世界坐标锚需要裂隙锭、裂隙核心、复苏电池和下界之星；输入坐标核心每30秒完整度+500、熵债-1000。也可继续用复苏阵列推进，无需一定使用坐标锚。"
     };
-    public ProtocolJournalScreen(Screen parent) { super(Component.literal("协议终端")); this.parent = parent; }
+    public static String detail(int id){return id<DETAILS.length?DETAILS[id]:dev.yuni.ashenprotocol.campaign.CampaignJournal.detail(id);}
+    public ProtocolJournalScreen(Screen parent){super(Component.literal("协议任务书"));this.parent=parent;}
+    private boolean overview=true;
+    private Button trackButton,disableButton;
     private int scroll;
-    private int panelX, panelY, panelWidth, panelHeight, navWidth, bodyX, bodyY, bodyWidth, bodyBottom;
-    private final java.util.List<Button> chapters = new java.util.ArrayList<>();
-    @Override protected void init() {
-        chapters.clear();
-        panelWidth = Math.min(760, width - 24);
-        panelHeight = Math.min(420, height - 24);
-        panelX = (width - panelWidth) / 2;
-        panelY = (height - panelHeight) / 2;
-        navWidth = Math.max(96, Math.min(160, panelWidth / 4));
-        bodyX = panelX + navWidth + 24;
-        bodyY = panelY + 65;
-        bodyWidth = panelX + panelWidth - 14 - bodyX;
-        bodyBottom = panelY + panelHeight - 78;
-        int gap = Math.min(26, (panelHeight - 87) / 8);
-        for (int i = 0; i < 8 && page*8+i<Progression.TITLES.length; i++) {
-            final int n = page * 8 + i;
-            Button b = Button.builder(Component.literal((n + 1) + " · " + Progression.TITLES[n]), button -> { chapter = n; scroll = 0; })
-                .bounds(panelX + 12, panelY + 34 + i * gap, navWidth, Math.max(14, gap - 3)).build();
-            chapters.add(b); addRenderableWidget(b);
-        }
-        addRenderableWidget(Button.builder(Component.literal("上一组"), b -> { page=Math.floorMod(page-1,(Progression.TITLES.length+7)/8);chapter=page*8;scroll=0;rebuildWidgets(); })
-            .bounds(panelX+12,panelY+panelHeight-43,navWidth/2-2,16).build());
-        addRenderableWidget(Button.builder(Component.literal("下一组"), b -> { page=(page+1)%((Progression.TITLES.length+7)/8);chapter=page*8;scroll=0;rebuildWidgets(); })
-            .bounds(panelX+14+navWidth/2,panelY+panelHeight-43,navWidth/2-2,16).build());
-        addRenderableWidget(Button.builder(Component.literal("返回"), b -> onClose())
-            .bounds(width / 2 - 45, panelY + panelHeight - 25, 90, 18).build());
-    }
-    private int maxScroll() {
-        return Math.max(0, font.split(Component.literal((chapter<DETAILS.length?DETAILS[chapter]:dev.yuni.ashenprotocol.campaign.CampaignJournal.detail(chapter))), bodyWidth).size() * 12 - (bodyBottom - bodyY));
-    }
-    @Override public boolean mouseScrolled(double mx, double my, double amount) {
-        if (mx >= bodyX && mx < bodyX + bodyWidth && my >= bodyY && my < bodyBottom) {
-            scroll = net.minecraft.util.Mth.clamp(scroll - (int)(amount * 24), 0, maxScroll());
-            return true;
-        }
-        return super.mouseScrolled(mx, my, amount);
-    }
-    @Override public void render(GuiGraphics g, int mx, int my, float delta) {
-        g.fill(0, 0, width, height, 0xe009121c);
-        g.fill(panelX, panelY, panelX + panelWidth, panelY + panelHeight, 0xff111e2b);
-        g.fill(panelX, panelY, panelX + panelWidth, panelY + 2, 0xff63e9db);
-        g.fill(bodyX - 9, panelY + 33, bodyX - 8, panelY + panelHeight - 34, 0xff2b3e4d);
-        g.drawString(font, "灰烬协议 / 协议终端", panelX + 12, panelY + 12, 0xff63e9db);
-        for (int i = 0; i < chapters.size(); i++) chapters.get(i).active = page * 8 + i != chapter;
-        g.drawString(font, Progression.TITLES[chapter], bodyX, panelY + 34, 0xfff2eadb);
-        boolean done = ClientState.completed(chapter);
-        String state = ClientState.connected ? (done ? "已完成 · 奖励已发放" : "进行中 · 自动记录") : "离线教程";
-        g.drawString(font, state, bodyX, panelY + 49, done ? 0xff63e9db : 0xffb9a984);
-        scroll = net.minecraft.util.Mth.clamp(scroll, 0, maxScroll());
-        g.enableScissor(bodyX, bodyY, bodyX + bodyWidth, bodyBottom);
-        int y = bodyY - scroll;
-        for (var line : font.split(Component.literal((chapter<DETAILS.length?DETAILS[chapter]:dev.yuni.ashenprotocol.campaign.CampaignJournal.detail(chapter))), bodyWidth)) {
-            g.drawString(font, line, bodyX, y, 0xffc6d3df); y += 12;
-        }
-        g.disableScissor();
-        if (maxScroll() > 0) {
-            int track = bodyBottom - bodyY;
-            int thumb = Math.max(8, track * track / (track + maxScroll()));
-            int top = bodyY + scroll * (track - thumb) / maxScroll();
-            g.fill(bodyX + bodyWidth + 3, bodyY, bodyX + bodyWidth + 5, bodyBottom, 0xff293944);
-            g.fill(bodyX + bodyWidth + 3, top, bodyX + bodyWidth + 5, top + thumb, 0xff63e9db);
-        }
-        int statusY = panelY + panelHeight - 69;
-        g.fill(bodyX, statusY - 4, panelX + panelWidth - 12, statusY - 3, 0xff2b3e4d);
-        if (ClientState.connected) {
-            g.drawString(font, "完整度 " + ClientState.integrity + " / 熵债 " + ClientState.entropy, bodyX, statusY, 0xff63e9db);
-            g.drawString(font, "阶段：" + ProtocolPhase.from(ClientState.integrity, ClientState.entropy).zh(), bodyX, statusY + 12, 0xffc6d3df);
-            if (!ClientState.echo.isEmpty()) {
-                g.enableScissor(bodyX, statusY + 24, bodyX + bodyWidth, statusY + 35);
-                g.drawString(font, "回声：" + ClientState.echo, bodyX, statusY + 24, 0xffbc90df); g.disableScissor();
+    private int panelX,panelY,panelWidth,panelHeight,navWidth,bodyX,bodyY,bodyWidth,bodyBottom;
+    private final java.util.List<Button> chapters=new java.util.ArrayList<>();
+    public boolean isOverview(){return overview;}
+    public int selectedQuest(){return chapter;}
+    public void selectQuest(int id){if(id<0||id>=Progression.TITLES.length)return;chapter=id;page=id/8;overview=false;scroll=0;rebuildWidgets();}
+    private String status(int id){return ClientState.completed(id)?"✓":dev.yuni.ashenprotocol.progress.QuestCatalog.ready(id,ClientState::completed)?"○":"·";}
+    private Button button(String text,int x,int y,int w,int h,Button.OnPress action){Button widget=Button.builder(Component.literal(text),action).bounds(x,y,w,h).build();addRenderableWidget(widget);return widget;}
+    @Override protected void init(){
+        chapters.clear();panelWidth=Math.min(820,width-24);panelHeight=Math.min(450,height-24);panelX=(width-panelWidth)/2;panelY=(height-panelHeight)/2;
+        navWidth=Math.max(96,Math.min(160,panelWidth/4));bodyX=panelX+navWidth+24;bodyY=panelY+65;bodyWidth=panelX+panelWidth-14-bodyX;bodyBottom=panelY+panelHeight-64;
+        if(overview){
+            int columns=panelWidth>=620?4:3,rows=(12+columns-1)/columns,gap=6,cardWidth=(panelWidth-24-(columns-1)*gap)/columns,cardHeight=Math.min(58,(panelHeight-103-(rows-1)*gap)/rows);
+            for(int c=0;c<12;c++){
+                final int group=c;int done=0;for(int n=c*8;n<c*8+8;n++)if(ClientState.completed(n))done++;
+                button((c+1)+" · "+dev.yuni.ashenprotocol.progress.QuestCatalog.CHAPTERS[c]+" "+done+"/8",panelX+12+c%columns*(cardWidth+gap),panelY+49+c/columns*(cardHeight+gap),cardWidth,cardHeight,b->{int next=group*8;for(int n=group*8;n<group*8+8;n++)if(!ClientState.completed(n)){next=n;break;}selectQuest(next);});
             }
-        } else g.drawString(font, "进入世界后同步任务状态", bodyX, statusY, 0xff899aa9);
-        super.render(g, mx, my, delta);
+            button("继续推荐任务",panelX+12,panelY+panelHeight-43,112,18,b->{int id=dev.yuni.ashenprotocol.progress.QuestCatalog.recommend(ClientState::completed);selectQuest(id<0?95:id);});
+        }else{
+            int gap=Math.min(28,(panelHeight-101)/8);
+            for(int i=0;i<8;i++){final int id=page*8+i;Button b=Button.builder(Component.literal(status(id)+" "+(id+1)+" · "+Progression.TITLES[id]),q->selectQuest(id)).bounds(panelX+12,panelY+38+i*gap,navWidth,Math.max(14,gap-3)).build();chapters.add(b);addRenderableWidget(b);}
+            button("上一章",panelX+12,panelY+panelHeight-63,navWidth/2-2,16,b->selectQuest(Math.floorMod(page-1,12)*8));
+            button("下一章",panelX+14+navWidth/2,panelY+panelHeight-63,navWidth/2-2,16,b->selectQuest((page+1)%12*8));
+            button("章节总览",panelX+12,panelY+panelHeight-43,navWidth/2-2,16,b->{overview=true;scroll=0;rebuildWidgets();});
+            button("推荐",panelX+14+navWidth/2,panelY+panelHeight-43,navWidth/2-2,16,b->{int id=dev.yuni.ashenprotocol.progress.QuestCatalog.recommend(ClientState::completed);if(id>=0)selectQuest(id);});
+            trackButton=button("追踪此任务",bodyX,panelY+panelHeight-43,88,18,b->{if(ClientState.connected)dev.yuni.ashenprotocol.network.ProtocolNetwork.track(chapter);});
+            disableButton=button("关闭追踪",bodyX+94,panelY+panelHeight-43,72,18,b->{if(ClientState.connected)dev.yuni.ashenprotocol.network.ProtocolNetwork.track(-1);});
+        }
+        button("返回游戏",width/2-42,panelY+panelHeight-23,84,18,b->onClose());
     }
-    @Override public void onClose() { minecraft.setScreen(parent); }
+    private net.minecraft.world.item.ItemStack icon(int id){var item=net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(new net.minecraft.resources.ResourceLocation("ashenprotocol",dev.yuni.ashenprotocol.progress.QuestCatalog.ICONS[id]));return item==null?net.minecraft.world.item.ItemStack.EMPTY:new net.minecraft.world.item.ItemStack(item);}
+    private String body(){
+        String text="完成条件："+dev.yuni.ashenprotocol.progress.QuestCatalog.condition(chapter)+"\n";
+        int target=dev.yuni.ashenprotocol.progress.QuestCatalog.target(chapter);if(target>1)text+="当前行动进度："+ClientState.progress[chapter]+" / "+target+"\n";
+        if(chapter==7||chapter==23||chapter==79||chapter==95)text+="世界状态：完整度 "+ClientState.integrity+" / 熵债 "+ClientState.entropy+"\n";
+        int[] deps=dev.yuni.ashenprotocol.progress.QuestCatalog.PREREQUISITES[chapter];
+        if(deps.length>0){text+="建议先做：";for(int i=0;i<deps.length;i++)text+=(i==0?"":"、")+Progression.TITLES[deps[i]]+(ClientState.completed(deps[i])?"（已完成）":"（待准备）");text+="\n";}
+        text+="首次奖励："+dev.yuni.ashenprotocol.progress.QuestCatalog.reward(chapter)+"点经验，完成后自动发放。\n\n操作与材料\n"+detail(chapter);
+        int next=dev.yuni.ashenprotocol.progress.QuestCatalog.recommend(ClientState::completed);if(next>=0&&next!=chapter)text+="\n\n下一步推荐："+Progression.TITLES[next]+"。可使用左下方‘推荐’跳转。";
+        return text;
+    }
+    private int maxScroll(){return Math.max(0,font.split(Component.literal(body()),bodyWidth).size()*12-(bodyBottom-bodyY));}
+    @Override public boolean mouseScrolled(double mx,double my,double amount){if(!overview&&mx>=bodyX&&mx<bodyX+bodyWidth&&my>=bodyY&&my<bodyBottom){scroll=net.minecraft.util.Mth.clamp(scroll-(int)(amount*24),0,maxScroll());return true;}return super.mouseScrolled(mx,my,amount);}
+    @Override public void render(GuiGraphics g,int mx,int my,float delta){
+        g.fill(0,0,width,height,0xe009121c);g.fill(panelX,panelY,panelX+panelWidth,panelY+panelHeight,0xff111e2b);g.fill(panelX,panelY,panelX+panelWidth,panelY+2,0xff63e9db);
+        int completed=0;for(int i=0;i<96;i++)if(ClientState.completed(i))completed++;
+        g.drawString(font,"灰烬协议 / 任务书",panelX+12,panelY+12,0xff63e9db);
+        if(overview){
+            g.drawString(font,"12章 · "+completed+" / 96 已完成 · 点击章节查看任务",panelX+12,panelY+29,0xffc6d3df);
+            int next=dev.yuni.ashenprotocol.progress.QuestCatalog.recommend(ClientState::completed);
+            String line=ClientState.connected?(next<0?"全部完成，可继续自由生存。":"建议下一步："+Progression.TITLES[next]):"离线阅读 · 进入世界后同步个人进度";
+            g.drawString(font,font.plainSubstrByWidth(line,panelWidth-142),panelX+136,panelY+panelHeight-38,0xffb9a984);
+        }else{
+            trackButton.active=ClientState.connected&&!ClientState.completed(chapter);disableButton.active=ClientState.connected&&ClientState.tracked>=0;
+            g.fill(bodyX-9,panelY+33,bodyX-8,panelY+panelHeight-47,0xff2b3e4d);
+            for(int i=0;i<chapters.size();i++){int id=page*8+i;chapters.get(i).active=id!=chapter;chapters.get(i).setMessage(Component.literal(status(id)+" "+(id+1)+" · "+Progression.TITLES[id]));}
+            g.renderItem(icon(chapter),bodyX,panelY+32);g.drawString(font,font.plainSubstrByWidth(Progression.TITLES[chapter],bodyWidth-24),bodyX+24,panelY+34,0xfff2eadb);
+            boolean done=ClientState.completed(chapter);String state=!ClientState.connected?"离线阅读":done?"已完成 · 首次奖励已自动发放":dev.yuni.ashenprotocol.progress.QuestCatalog.ready(chapter,ClientState::completed)?"可推进 · 可追踪到游戏画面":"待准备 · 可先阅读材料与步骤";
+            g.drawString(font,font.plainSubstrByWidth(state,bodyWidth),bodyX,panelY+51,done?0xff63e9db:0xffb9a984);
+            scroll=net.minecraft.util.Mth.clamp(scroll,0,maxScroll());g.enableScissor(bodyX,bodyY,bodyX+bodyWidth,bodyBottom);int y=bodyY-scroll;
+            for(var line:font.split(Component.literal(body()),bodyWidth)){g.drawString(font,line,bodyX,y,0xffc6d3df);y+=12;}g.disableScissor();
+            if(maxScroll()>0){int track=bodyBottom-bodyY,thumb=Math.max(8,track*track/(track+maxScroll())),top=bodyY+scroll*(track-thumb)/maxScroll();g.fill(bodyX+bodyWidth+3,bodyY,bodyX+bodyWidth+5,bodyBottom,0xff293944);g.fill(bodyX+bodyWidth+3,top,bodyX+bodyWidth+5,top+thumb,0xff63e9db);}
+        }
+        super.render(g,mx,my,delta);
+        if(!overview&&mx>=bodyX&&mx<bodyX+16&&my>=panelY+32&&my<panelY+48)g.renderTooltip(font,icon(chapter),mx,my);
+    }
+    @Override public void onClose(){minecraft.setScreen(parent);}
 }

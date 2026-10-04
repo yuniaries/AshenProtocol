@@ -35,13 +35,22 @@ public final class ClientEvents {
                     mc.options.save();
                 }
             }
-            if (mc.player.tickCount % 20 == 0) mc.getWindow().setTitle("灰烬协议：生态重启 | yuniaries | 1.0.0");
+            if (mc.player.tickCount % 20 == 0) mc.getWindow().setTitle("灰烬协议：生态重启 | yuniaries | 1.1.0");
             while (JOURNAL.consumeClick()) mc.setScreen(new ProtocolJournalScreen(null));
         }
     }
     @SubscribeEvent public static void hud(RenderGuiEvent.Post e) {
         var mc = Minecraft.getInstance();
         if (mc.player == null || mc.screen != null || mc.options.hideGui || !ClientState.connected) return;
+        if(ClientState.tracked>=0&&ClientState.tracked<dev.yuni.ashenprotocol.progress.Progression.TITLES.length){
+            int id=ClientState.tracked;int w=Math.min(200,mc.getWindow().getGuiScaledWidth()/2-12),x=mc.getWindow().getGuiScaledWidth()-w-6,y=mc.getWindow().getGuiScaledHeight()-84;var q=e.getGuiGraphics();
+            q.fill(x,y,x+w,y+65,0xd0111e2b);q.fill(x,y,x+2,y+65,0xff63e9db);
+            q.drawString(mc.font,"追踪目标 · J 任务书",x+8,y+7,0xff63e9db);
+            q.drawString(mc.font,mc.font.plainSubstrByWidth(dev.yuni.ashenprotocol.progress.Progression.TITLES[id],w-16),x+8,y+20,0xfff2eadb);
+            int target=dev.yuni.ashenprotocol.progress.QuestCatalog.target(id),current=ClientState.progress[id];q.drawString(mc.font,"进度 "+current+" / "+target,x+8,y+33,0xffc6d3df);
+            q.drawString(mc.font,mc.font.plainSubstrByWidth(dev.yuni.ashenprotocol.progress.QuestCatalog.hint(id),w-16),x+8,y+45,0xffb9a984);
+            q.fill(x+8,y+58,x+w-8,y+60,0xff293944);q.fill(x+8,y+58,x+8+Math.min(current,target)*(w-16)/target,y+60,0xff63e9db);
+        }
         if (!mc.player.getMainHandItem().is(ModItems.ENTROPY_METER.get()) && !mc.player.getOffhandItem().is(ModItems.ENTROPY_METER.get())) return;
         int bosses = mc.level.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, mc.player.getBoundingBox().inflate(96), entity ->
             entity instanceof dev.yuni.ashenprotocol.expansion.ProtocolMob mob && mob.isBoss()

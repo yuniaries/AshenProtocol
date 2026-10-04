@@ -19,6 +19,7 @@ jobs:
       - run: python3 tools/generate_assets.py
       - run: python3 tools/generate_expansion.py
       - run: python3 tools/generate_campaign.py
+      - run: python3 tools/generate_quests.py
       - run: python3 tools/generate_guide.py
       - run: python3 tools/audit_survival.py
       - run: chmod +x gradlew && ./gradlew build --no-daemon
